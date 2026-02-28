@@ -59,8 +59,8 @@ export default async function HomePage() {
             Integrated Creative Agency · Accra, Ghana
           </p>
 
-          <h1 className="font-serif font-bold leading-[0.92] tracking-[-0.02em] text-[#0B0F14] mb-10"
-            style={{ fontSize: 'clamp(56px,9vw,120px)' }}>
+          <h1 className="font-serif font-bold leading-[1.0] tracking-[-0.03em] text-[#0B0F14] mb-10"
+            style={{ fontSize: 'clamp(52px,8vw,108px)' }}>
             We Build Brands<br />
             That <span className="text-[#2563EB] italic">Perform</span><br />
             Online &amp; Offline.
