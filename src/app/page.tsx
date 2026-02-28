@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudies, getTestimonials } from '@/sanity/queries'
 import CaseCard from '@/components/CaseCard'
@@ -10,6 +11,7 @@ const fallbackCaseStudies = [
     metric1_num: '3×', metric1_label: 'Brand Recall',
     metric2_num: '68%', metric2_label: 'Web Conversion Lift',
     metric3_num: '6wks', metric3_label: 'Launch Timeline', accent: 'purple',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '2', slug: { current: 'kepler-systems-web' }, client: 'Kepler Systems',
@@ -17,6 +19,7 @@ const fallbackCaseStudies = [
     metric1_num: '4.4×', metric1_label: 'Organic Traffic',
     metric2_num: '52%', metric2_label: 'Demo Request Rate',
     metric3_num: '90d', metric3_label: 'Go-Live', accent: 'cyan',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '3', slug: { current: 'verto-networks-identity' }, client: 'Verto Networks',
@@ -24,6 +27,7 @@ const fallbackCaseStudies = [
     metric1_num: '2.2×', metric1_label: 'Brand Equity Score',
     metric2_num: '41%', metric2_label: 'Campaign Reach',
     metric3_num: '8wks', metric3_label: 'Rebrand to Launch', accent: 'gold',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&q=80&auto=format&fit=crop',
   },
 ]
 
@@ -54,40 +58,60 @@ export default async function HomePage() {
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="relative max-w-[1280px] mx-auto w-full">
-          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#2563EB] mb-8 hero-in hero-in-1">
-            Integrated Creative Agency · Accra, Ghana
-          </p>
+        <div className="relative max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Text */}
+          <div>
+            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#2563EB] mb-8 hero-in hero-in-1">
+              Integrated Creative Agency · Accra, Ghana
+            </p>
 
-          <h1 className="font-serif font-bold leading-[1.0] tracking-[-0.03em] text-[#0B0F14] mb-10 hero-in hero-in-2"
-            style={{ fontSize: 'clamp(52px,8vw,108px)' }}>
-            We Build Brands<br />
-            That <span className="text-[#2563EB] italic">Perform</span><br />
-            Online &amp; Offline.
-          </h1>
+            <h1 className="font-serif font-bold leading-[1.0] tracking-[-0.03em] text-[#0B0F14] mb-10 hero-in hero-in-2"
+              style={{ fontSize: 'clamp(48px,6vw,88px)' }}>
+              We Build Brands<br />
+              That <span className="text-[#2563EB] italic">Perform</span><br />
+              Online &amp; Offline.
+            </h1>
 
-          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(11,15,20,0.60)] max-w-xl leading-relaxed mb-12 hero-in hero-in-3">
-            Brand identity, websites, marketing campaigns, and print production — delivered with one consistent standard, from concept to execution.
-          </p>
+            <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(11,15,20,0.60)] max-w-xl leading-relaxed mb-12 hero-in hero-in-3">
+              Brand identity, websites, marketing campaigns, and print production — delivered with one consistent standard, from concept to execution.
+            </p>
 
-          <div className="flex flex-wrap gap-4 hero-in hero-in-4">
-            <Link
-              href="/contact"
-              className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-8 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
-            >
-              Book a Brand Strategy Call
-            </Link>
-            <Link
-              href="/work"
-              className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium border border-[rgba(37,99,235,0.35)] text-[rgba(11,15,20,0.70)] px-8 py-4 hover:border-[#2563EB] hover:text-[#0B0F14] transition-colors duration-200"
-            >
-              View Case Studies
-            </Link>
+            <div className="flex flex-wrap gap-4 hero-in hero-in-4">
+              <Link
+                href="/contact"
+                className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-8 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
+              >
+                Book a Brand Strategy Call
+              </Link>
+              <Link
+                href="/work"
+                className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium border border-[rgba(37,99,235,0.35)] text-[rgba(11,15,20,0.70)] px-8 py-4 hover:border-[#2563EB] hover:text-[#0B0F14] transition-colors duration-200"
+              >
+                View Case Studies
+              </Link>
+            </div>
+          </div>
+
+          {/* Hero image */}
+          <div className="hidden lg:block relative hero-in hero-in-5">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&h=1100&q=85&auto=format&fit=crop"
+                alt="Creative team at work"
+                fill
+                className="object-cover"
+                priority
+              />
+              {/* Blue tint overlay to match brand */}
+              <div className="absolute inset-0 bg-[rgba(37,99,235,0.06)]" />
+            </div>
+            {/* Decorative border offset */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full border border-[rgba(37,99,235,0.20)] pointer-events-none" />
           </div>
         </div>
 
         {/* Client marquee */}
-        <div className="relative max-w-[1280px] mx-auto w-full mt-24 overflow-hidden hero-in hero-in-5">
+        <div className="relative max-w-[1280px] mx-auto w-full mt-20 overflow-hidden hero-in hero-in-5">
           <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-[rgba(11,15,20,0.28)] mb-6">
             Trusted by
           </p>
@@ -146,6 +170,7 @@ export default async function HomePage() {
                   metric3_num={cs.metric3_num}
                   metric3_label={cs.metric3_label}
                   accent={cs.accent}
+                  image={cs.image}
                 />
               </div>
             ))}

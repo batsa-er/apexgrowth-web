@@ -1,48 +1,84 @@
 import { client } from './client'
+import {
+  CaseStudySchema,
+  CaseStudyDetailSchema,
+  InsightSchema,
+  InsightDetailSchema,
+  ServiceSchema,
+  ServiceDetailSchema,
+  TestimonialSchema,
+  CareerSchema,
+  validateArray,
+  validateOne,
+} from './validation'
+import type { CaseStudy, CaseStudyDetail, Insight, InsightDetail, Service, ServiceDetail, Testimonial, Career } from './types'
 
 // ── Case Studies ──────────────────────────────────────
-export async function getCaseStudies() {
-  return client.fetch(`*[_type == "caseStudy" && published == true] | order(_createdAt desc) {
+export async function getCaseStudies(): Promise<CaseStudy[]> {
+  const data = await client.fetch(`*[_type == "caseStudy" && published == true] | order(_createdAt desc) {
     _id, slug, client, industry, summary,
     metric1_num, metric1_label,
     metric2_num, metric2_label,
     metric3_num, metric3_label,
     accent
   }`)
+  return validateArray(CaseStudySchema, data, 'caseStudy')
 }
 
-export async function getCaseStudy(slug: string) {
-  return client.fetch(`*[_type == "caseStudy" && slug.current == $slug][0]`, { slug })
+export async function getCaseStudy(slug: string): Promise<CaseStudyDetail | null> {
+  const data = await client.fetch(
+    `*[_type == "caseStudy" && slug.current == $slug][0]`,
+    { slug },
+  )
+  return validateOne(CaseStudyDetailSchema, data, 'caseStudy')
 }
 
 // ── Insights ──────────────────────────────────────────
-export async function getInsights() {
-  return client.fetch(`*[_type == "insight" && published == true] | order(publishedAt desc) {
+export async function getInsights(): Promise<Insight[]> {
+  const data = await client.fetch(`*[_type == "insight" && published == true] | order(publishedAt desc) {
     _id, slug, title, tag, label, excerpt, publishedAt, readTime
   }`)
+  return validateArray(InsightSchema, data, 'insight')
 }
 
-export async function getInsight(slug: string) {
-  return client.fetch(`*[_type == "insight" && slug.current == $slug][0]`, { slug })
+export async function getInsight(slug: string): Promise<InsightDetail | null> {
+  const data = await client.fetch(
+    `*[_type == "insight" && slug.current == $slug][0]`,
+    { slug },
+  )
+  return validateOne(InsightDetailSchema, data, 'insight')
 }
 
 // ── Services ──────────────────────────────────────────
-export async function getServices() {
-  return client.fetch(`*[_type == "service"] | order(order asc) {
+export async function getServices(): Promise<Service[]> {
+  const data = await client.fetch(`*[_type == "service"] | order(order asc) {
     _id, slug, number, title, tagline, description, outcomes, price
   }`)
+  return validateArray(ServiceSchema, data, 'service')
+}
+
+export async function getServiceBySlug(slug: string): Promise<ServiceDetail | null> {
+  const data = await client.fetch(
+    `*[_type == "service" && slug.current == $slug][0] {
+      _id, slug, number, title, tagline, description, outcomes, price, detail, process
+    }`,
+    { slug },
+  )
+  return validateOne(ServiceDetailSchema, data, 'service')
 }
 
 // ── Testimonials ──────────────────────────────────────
-export async function getTestimonials() {
-  return client.fetch(`*[_type == "testimonial" && published == true] | order(featured desc) {
+export async function getTestimonials(): Promise<Testimonial[]> {
+  const data = await client.fetch(`*[_type == "testimonial" && published == true] | order(featured desc) {
     _id, quote, name, role, initials, featured
   }`)
+  return validateArray(TestimonialSchema, data, 'testimonial')
 }
 
 // ── Careers ───────────────────────────────────────────
-export async function getCareers() {
-  return client.fetch(`*[_type == "career" && published == true] | order(_createdAt desc) {
+export async function getCareers(): Promise<Career[]> {
+  const data = await client.fetch(`*[_type == "career" && published == true] | order(_createdAt desc) {
     _id, title, department, type, location, excerpt, applyUrl
   }`)
+  return validateArray(CareerSchema, data, 'career')
 }

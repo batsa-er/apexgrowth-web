@@ -1,11 +1,28 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getCareers } from '@/sanity/queries'
 
 const team = [
-  { name: 'Kwame Asante', role: 'Founder & Creative Director', initials: 'KA', bio: 'Founded Apex Growth to bring world-class creative thinking to African businesses. 15 years building brands across finance, healthcare, and technology sectors.' },
-  { name: 'Adaeze Okonkwo', role: 'Head of Brand Strategy', initials: 'AO', bio: 'Brand strategist with deep expertise in identity, positioning, and visual systems across EMEA and Africa. Previously strategy lead at a global creative consultancy.' },
-  { name: 'Seun Bankole', role: 'Head of Digital & Performance', initials: 'SB', bio: 'Led digital campaigns and performance marketing for high-growth consumer and B2B brands. Data-driven creative with a track record of measurable outcomes.' },
-  { name: 'Yemi Adesanya', role: 'Head of Production', initials: 'YA', bio: 'Manages end-to-end production across web, print, and brand — from vendor coordination to quality control. Delivered 500+ projects across 12 countries.' },
+  {
+    name: 'Kwame Asante', role: 'Founder & Creative Director', initials: 'KA',
+    bio: 'Founded Apex Growth to bring world-class creative thinking to African businesses. 15 years building brands across finance, healthcare, and technology sectors.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
+  },
+  {
+    name: 'Adaeze Okonkwo', role: 'Head of Brand Strategy', initials: 'AO',
+    bio: 'Brand strategist with deep expertise in identity, positioning, and visual systems across EMEA and Africa. Previously strategy lead at a global creative consultancy.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
+  },
+  {
+    name: 'Seun Bankole', role: 'Head of Digital & Performance', initials: 'SB',
+    bio: 'Led digital campaigns and performance marketing for high-growth consumer and B2B brands. Data-driven creative with a track record of measurable outcomes.',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
+  },
+  {
+    name: 'Yemi Adesanya', role: 'Head of Production', initials: 'YA',
+    bio: 'Manages end-to-end production across web, print, and brand — from vendor coordination to quality control. Delivered 500+ projects across 12 countries.',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
+  },
 ]
 
 const values = [
@@ -44,6 +61,18 @@ export default async function AboutPage() {
           </p>
         </div>
       </section>
+
+      {/* Editorial photo */}
+      <div className="relative w-full aspect-[21/9] overflow-hidden hero-in hero-in-4">
+        <Image
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=700&q=85&auto=format&fit=crop"
+          alt="Apex Growth creative studio"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-[rgba(37,99,235,0.08)]" />
+      </div>
 
       {/* Mission */}
       <section className="bg-[#EEF2FF] border-y border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24">
@@ -103,14 +132,22 @@ export default async function AboutPage() {
             Operators. Not consultants.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map(({ name, role, initials, bio }, i) => (
-              <div key={name} className="border border-[rgba(37,99,235,0.08)] p-8 reveal" style={{ transitionDelay: `${i * 80}ms` }}>
-                <div className="w-14 h-14 rounded-full bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.25)] flex items-center justify-center mb-6">
-                  <span className="font-mono text-[12px] text-[#2563EB]">{initials}</span>
+            {team.map(({ name, role, initials, bio, image }, i) => (
+              <div key={name} className="border border-[rgba(37,99,235,0.08)] bg-[#F6F7FB] overflow-hidden reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                {/* Headshot */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <h3 className="font-serif text-[18px] font-bold text-[#0B0F14] mb-1">{name}</h3>
-                <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#2563EB] mb-4">{role}</p>
-                <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{bio}</p>
+                <div className="p-6">
+                  <h3 className="font-serif text-[18px] font-bold text-[#0B0F14] mb-1">{name}</h3>
+                  <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#2563EB] mb-4">{role}</p>
+                  <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{bio}</p>
+                </div>
               </div>
             ))}
           </div>

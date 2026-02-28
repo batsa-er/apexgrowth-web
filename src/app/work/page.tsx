@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudies } from '@/sanity/queries'
 
@@ -8,6 +9,7 @@ const fallback = [
     metric1_num: '3×', metric1_label: 'Brand Recall',
     metric2_num: '68%', metric2_label: 'Web Conversion Lift',
     metric3_num: '6wks', metric3_label: 'Launch Timeline', accent: 'purple',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '2', slug: { current: 'kepler-systems-web' }, client: 'Kepler Systems',
@@ -15,6 +17,7 @@ const fallback = [
     metric1_num: '4.4×', metric1_label: 'Organic Traffic',
     metric2_num: '52%', metric2_label: 'Demo Request Rate',
     metric3_num: '90d', metric3_label: 'Go-Live', accent: 'cyan',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '3', slug: { current: 'verto-networks-identity' }, client: 'Verto Networks',
@@ -22,6 +25,7 @@ const fallback = [
     metric1_num: '2.2×', metric1_label: 'Brand Equity Score',
     metric2_num: '41%', metric2_label: 'Campaign Reach',
     metric3_num: '8wks', metric3_label: 'Rebrand to Launch', accent: 'gold',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '4', slug: { current: 'luminary-health-print' }, client: 'Luminary Health',
@@ -29,6 +33,7 @@ const fallback = [
     metric1_num: '12', metric1_label: 'Events Produced',
     metric2_num: '900+', metric2_label: 'Assets Delivered',
     metric3_num: '72hr', metric3_label: 'Avg Turnaround', accent: 'cyan',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '5', slug: { current: 'tradeaxis-campaign' }, client: 'TradeAxis',
@@ -36,6 +41,7 @@ const fallback = [
     metric1_num: '220%', metric1_label: 'Lead Volume',
     metric2_num: '3.1×', metric2_label: 'Cost-per-Lead Improvement',
     metric3_num: '6wks', metric3_label: 'Campaign Duration', accent: 'gold',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=500&q=80&auto=format&fit=crop',
   },
   {
     _id: '6', slug: { current: 'novabridge-identity' }, client: 'NovaBridge Capital',
@@ -43,6 +49,7 @@ const fallback = [
     metric1_num: '1 round', metric1_label: 'Raise Completed',
     metric2_num: '100%', metric2_label: 'Brand Asset Coverage',
     metric3_num: '4wks', metric3_label: 'Concept to Delivery', accent: 'purple',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&q=80&auto=format&fit=crop',
   },
 ]
 
@@ -86,31 +93,45 @@ export default async function WorkPage() {
               <Link
                 key={cs._id}
                 href={`/work/${cs.slug?.current || cs.slug}`}
-                className="group block p-8 border border-[rgba(15,23,42,0.12)] bg-white hover:border-[rgba(37,99,235,0.40)] hover:-translate-y-1 transition-all duration-300 reveal"
+                className="group block border border-[rgba(15,23,42,0.12)] bg-white hover:border-[rgba(37,99,235,0.40)] hover:-translate-y-1 transition-all duration-300 overflow-hidden reveal"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="flex items-center justify-between mb-6">
-                  <span
-                    className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5"
-                    style={{ color: acc.text, border: `1px solid ${acc.border}` }}
-                  >
-                    {cs.industry}
-                  </span>
-                  <span className="font-mono text-[10px] text-[rgba(11,15,20,0.28)] group-hover:translate-x-1 transition-transform duration-200">→</span>
-                </div>
-                <h2 className="font-serif text-[24px] font-semibold text-[#0B0F14] mb-3">{cs.client}</h2>
-                <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-8">{cs.summary}</p>
-                <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[rgba(37,99,235,0.08)]">
-                  {[
-                    [cs.metric1_num, cs.metric1_label],
-                    [cs.metric2_num, cs.metric2_label],
-                    [cs.metric3_num, cs.metric3_label],
-                  ].map(([num, label]) => (
-                    <div key={label}>
-                      <p className="font-serif text-[20px] font-bold mb-0.5" style={{ color: acc.text }}>{num}</p>
-                      <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
-                    </div>
-                  ))}
+                {/* Cover image */}
+                {cs.image && (
+                  <div className="relative w-full aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={cs.image}
+                      alt={cs.client}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <span
+                      className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5"
+                      style={{ color: acc.text, border: `1px solid ${acc.border}` }}
+                    >
+                      {cs.industry}
+                    </span>
+                    <span className="font-mono text-[10px] text-[rgba(11,15,20,0.28)] group-hover:translate-x-1 transition-transform duration-200">→</span>
+                  </div>
+                  <h2 className="font-serif text-[24px] font-semibold text-[#0B0F14] mb-3">{cs.client}</h2>
+                  <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-8">{cs.summary}</p>
+                  <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[rgba(37,99,235,0.08)]">
+                    {[
+                      [cs.metric1_num, cs.metric1_label],
+                      [cs.metric2_num, cs.metric2_label],
+                      [cs.metric3_num, cs.metric3_label],
+                    ].map(([num, label]) => (
+                      <div key={label}>
+                        <p className="font-serif text-[20px] font-bold mb-0.5" style={{ color: acc.text }}>{num}</p>
+                        <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </Link>
             )
