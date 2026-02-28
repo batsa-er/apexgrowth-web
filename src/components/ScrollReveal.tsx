@@ -1,13 +1,15 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function ScrollReveal() {
-  useEffect(() => {
-    const selector = '.reveal, .reveal-scale'
-    const els = document.querySelectorAll<Element>(selector)
+  const pathname = usePathname()
 
-    // Fallback for environments without IntersectionObserver
+  useEffect(() => {
+    // Only observe elements not already visible (avoids re-animating on back navigation)
+    const els = document.querySelectorAll<Element>('.reveal:not(.visible), .reveal-scale:not(.visible)')
+
     if (!('IntersectionObserver' in window)) {
       els.forEach(el => el.classList.add('visible'))
       return
@@ -27,7 +29,7 @@ export default function ScrollReveal() {
 
     els.forEach(el => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [pathname]) // re-run on every page navigation
 
   return null
 }
