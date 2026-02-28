@@ -22,7 +22,8 @@ export default defineType({
       name: 'accent', title: 'Accent Color', type: 'string',
       options: { list: ['purple', 'cyan', 'gold'] },
     }),
+    defineField({ name: 'coverImage', title: 'Cover Image', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'published', title: 'Published', type: 'boolean', initialValue: true }),
   ],
-  preview: { select: { title: 'client', subtitle: 'industry' } },
+  preview: { select: { title: 'client', subtitle: 'industry', media: 'coverImage' } },
 })

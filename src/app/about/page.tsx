@@ -1,25 +1,26 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getCareers } from '@/sanity/queries'
+import { getCareers, getTeamMembers } from '@/sanity/queries'
+import { urlFor } from '@/sanity/client'
 
-const team = [
+const fallbackTeam = [
   {
-    name: 'Kwame Asante', role: 'Founder & Creative Director', initials: 'KA',
+    _id: '1', name: 'Kwame Asante', role: 'Founder & Creative Director',
     bio: 'Founded Apex Growth to bring world-class creative thinking to African businesses. 15 years building brands across finance, healthcare, and technology sectors.',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
   },
   {
-    name: 'Adaeze Okonkwo', role: 'Head of Brand Strategy', initials: 'AO',
+    _id: '2', name: 'Adaeze Okonkwo', role: 'Head of Brand Strategy',
     bio: 'Brand strategist with deep expertise in identity, positioning, and visual systems across EMEA and Africa. Previously strategy lead at a global creative consultancy.',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
   },
   {
-    name: 'Seun Bankole', role: 'Head of Digital & Performance', initials: 'SB',
+    _id: '3', name: 'Seun Bankole', role: 'Head of Digital & Performance',
     bio: 'Led digital campaigns and performance marketing for high-growth consumer and B2B brands. Data-driven creative with a track record of measurable outcomes.',
     image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
   },
   {
-    name: 'Yemi Adesanya', role: 'Head of Production', initials: 'YA',
+    _id: '4', name: 'Yemi Adesanya', role: 'Head of Production',
     bio: 'Manages end-to-end production across web, print, and brand — from vendor coordination to quality control. Delivered 500+ projects across 12 countries.',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&q=80&auto=format&fit=crop&crop=face',
   },
@@ -39,9 +40,11 @@ const fallbackCareers = [
 
 export default async function AboutPage() {
   let careers = fallbackCareers as any[]
+  let team = fallbackTeam as any[]
   try {
-    const c = await getCareers()
+    const [c, t] = await Promise.all([getCareers(), getTeamMembers()])
     if (c?.length) careers = c
+    if (t?.length) team = t
   } catch {}
 
   return (
@@ -132,24 +135,31 @@ export default async function AboutPage() {
             Operators. Not consultants.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map(({ name, role, initials, bio, image }, i) => (
-              <div key={name} className="border border-[rgba(37,99,235,0.08)] bg-[#F6F7FB] overflow-hidden reveal" style={{ transitionDelay: `${i * 80}ms` }}>
-                {/* Headshot */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+            {team.map((member: any, i: number) => {
+              const photoSrc = member.photo
+                ? urlFor(member.photo).width(400).height(300).url()
+                : member.image
+              return (
+              <div key={member._id || member.name} className="border border-[rgba(37,99,235,0.08)] bg-[#F6F7FB] overflow-hidden reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                {/* Headshot — Sanity photo takes priority over fallback URL */}
+                {photoSrc && (
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={photoSrc}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
                 <div className="p-6">
-                  <h3 className="font-serif text-[18px] font-bold text-[#0B0F14] mb-1">{name}</h3>
-                  <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#2563EB] mb-4">{role}</p>
-                  <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{bio}</p>
+                  <h3 className="font-serif text-[18px] font-bold text-[#0B0F14] mb-1">{member.name}</h3>
+                  <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#2563EB] mb-4">{member.role}</p>
+                  <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{member.bio}</p>
                 </div>
               </div>
-            ))}
+            )})}
+
           </div>
         </div>
       </section>

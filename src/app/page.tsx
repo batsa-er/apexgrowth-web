@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudies, getTestimonials } from '@/sanity/queries'
 import CaseCard from '@/components/CaseCard'
+import { urlFor } from '@/sanity/client'
 
 // Fallback data for when Sanity is not connected
 const fallbackCaseStudies = [
@@ -170,7 +171,7 @@ export default async function HomePage() {
                   metric3_num={cs.metric3_num}
                   metric3_label={cs.metric3_label}
                   accent={cs.accent}
-                  image={cs.image}
+                  image={cs.coverImage ? urlFor(cs.coverImage).width(800).height(450).url() : cs.image}
                 />
               </div>
             ))}

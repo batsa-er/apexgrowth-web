@@ -13,7 +13,8 @@ export default defineType({
     defineField({ name: 'body', title: 'Body', type: 'text', rows: 20 }),
     defineField({ name: 'publishedAt', title: 'Published At', type: 'date' }),
     defineField({ name: 'readTime', title: 'Read Time', type: 'string', placeholder: 'e.g. 8 min read' }),
+    defineField({ name: 'coverImage', title: 'Cover Image', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'published', title: 'Published', type: 'boolean', initialValue: true }),
   ],
-  preview: { select: { title: 'title', subtitle: 'tag' } },
+  preview: { select: { title: 'title', subtitle: 'tag', media: 'coverImage' } },
 })

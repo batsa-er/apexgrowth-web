@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudies } from '@/sanity/queries'
+import { urlFor } from '@/sanity/client'
 
 const fallback = [
   {
@@ -96,11 +97,11 @@ export default async function WorkPage() {
                 className="group block border border-[rgba(15,23,42,0.12)] bg-white hover:border-[rgba(37,99,235,0.40)] hover:-translate-y-1 transition-all duration-300 overflow-hidden reveal"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                {/* Cover image */}
-                {cs.image && (
+                {/* Cover image — Sanity upload takes priority over fallback URL */}
+                {(cs.coverImage || cs.image) && (
                   <div className="relative w-full aspect-[16/9] overflow-hidden">
                     <Image
-                      src={cs.image}
+                      src={cs.coverImage ? urlFor(cs.coverImage).width(800).height(450).url() : cs.image}
                       alt={cs.client}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

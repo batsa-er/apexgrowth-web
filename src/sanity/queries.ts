@@ -20,7 +20,7 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
     metric1_num, metric1_label,
     metric2_num, metric2_label,
     metric3_num, metric3_label,
-    accent
+    accent, coverImage
   }`)
   return validateArray(CaseStudySchema, data, 'caseStudy')
 }
@@ -36,7 +36,7 @@ export async function getCaseStudy(slug: string): Promise<CaseStudyDetail | null
 // ── Insights ──────────────────────────────────────────
 export async function getInsights(): Promise<Insight[]> {
   const data = await client.fetch(`*[_type == "insight" && published == true] | order(publishedAt desc) {
-    _id, slug, title, tag, label, excerpt, publishedAt, readTime
+    _id, slug, title, tag, label, excerpt, publishedAt, readTime, coverImage
   }`)
   return validateArray(InsightSchema, data, 'insight')
 }
@@ -73,6 +73,13 @@ export async function getTestimonials(): Promise<Testimonial[]> {
     _id, quote, name, role, initials, featured
   }`)
   return validateArray(TestimonialSchema, data, 'testimonial')
+}
+
+// ── Team Members ──────────────────────────────────────
+export async function getTeamMembers() {
+  return client.fetch(`*[_type == "teamMember"] | order(order asc) {
+    _id, name, role, bio, photo
+  }`)
 }
 
 // ── Careers ───────────────────────────────────────────

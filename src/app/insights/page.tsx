@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getInsights } from '@/sanity/queries'
+import { urlFor } from '@/sanity/client'
 
 const fallback = [
   {
@@ -75,11 +76,11 @@ export default async function InsightsPage() {
               href={`/insights/${insights[0].slug?.current || insights[0].slug}`}
               className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] mb-6 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden reveal"
             >
-              {/* Featured cover image */}
-              {insights[0].image && (
+              {/* Featured cover image — Sanity upload takes priority over fallback URL */}
+              {(insights[0].coverImage || insights[0].image) && (
                 <div className="relative w-full aspect-[21/9] overflow-hidden">
                   <Image
-                    src={insights[0].image}
+                    src={insights[0].coverImage ? urlFor(insights[0].coverImage).width(1200).height(514).url() : insights[0].image}
                     alt={insights[0].title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -115,11 +116,11 @@ export default async function InsightsPage() {
                 className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden reveal"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                {/* Grid card cover image */}
-                {ins.image && (
+                {/* Grid card cover image — Sanity upload takes priority over fallback URL */}
+                {(ins.coverImage || ins.image) && (
                   <div className="relative w-full aspect-[16/9] overflow-hidden">
                     <Image
-                      src={ins.image}
+                      src={ins.coverImage ? urlFor(ins.coverImage).width(800).height(450).url() : ins.image}
                       alt={ins.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
