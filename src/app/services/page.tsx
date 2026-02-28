@@ -3,28 +3,36 @@ import { getServices } from '@/sanity/queries'
 
 const fallback = [
   {
-    _id: '1', slug: { current: 'revenue-strategy' }, number: '01',
-    title: 'Revenue Strategy',
-    tagline: 'Architecture before execution.',
-    description: 'We map your entire revenue system — ICP, GTM motion, pipeline design, pricing, and competitive positioning — then build the playbook your team can execute.',
-    outcomes: ['Market & ICP definition', 'GTM motion design', 'Competitive positioning', 'Revenue model architecture', 'Pricing & packaging', 'Sales playbook development'],
-    price: 'From $12,000',
+    _id: '1', slug: { current: 'brand-identity' }, number: '01',
+    title: 'Brand & Identity',
+    tagline: 'Brand systems that scale.',
+    description: 'Logo and identity design, brand guidelines, corporate profiles, packaging design, and rebrands—built for clarity and consistency across every touchpoint.',
+    outcomes: ['Logo & identity suite', 'Brand guidelines & templates', 'Packaging & collateral design', 'Corporate profiles & presentations', 'Rebrand strategy & rollout', 'Brand audit & direction'],
+    price: 'Projects · Retainers',
   },
   {
-    _id: '2', slug: { current: 'demand-generation' }, number: '02',
-    title: 'Demand Generation',
-    tagline: 'Demand you own, not rent.',
-    description: 'Full-funnel demand programs: content, paid, ABM, outbound, and partner channels — built to generate pipeline that converts at every stage.',
-    outcomes: ['Multi-channel demand programs', 'ABM & account targeting', 'Content & SEO systems', 'Paid media management', 'Outbound sequences', 'Partner channel activation'],
-    price: 'From $8,000 / mo',
+    _id: '2', slug: { current: 'web-digital' }, number: '02',
+    title: 'Web & Digital',
+    tagline: 'Websites built to convert.',
+    description: 'UX-led websites, landing pages, and e-commerce that look premium and guide visitors to take action—fast, mobile-first, and measurable.',
+    outcomes: ['UX/UI + web development', 'Landing pages & CRO', 'Analytics & lead capture', 'E-commerce build & optimisation', 'SEO-ready architecture', 'Ongoing maintenance & support'],
+    price: 'Build · Maintain',
   },
   {
-    _id: '3', slug: { current: 'revenue-operations' }, number: '03',
-    title: 'Revenue Operations',
-    tagline: 'Systems that scale with you.',
-    description: 'CRM architecture, automation, attribution, and RevOps infrastructure so your team has the data and tooling to hit targets consistently.',
-    outcomes: ['CRM design & implementation', 'Sales automation & sequences', 'Attribution & reporting', 'Tech stack optimisation', 'Forecast & pipeline management', 'RevOps hiring & training'],
-    price: 'From $6,000 / mo',
+    _id: '3', slug: { current: 'marketing-campaigns' }, number: '03',
+    title: 'Marketing & Campaigns',
+    tagline: 'Creative that drives demand.',
+    description: 'Content, social media, paid ads, email, and campaign execution—designed with a clear message and tracked outcomes.',
+    outcomes: ['Social content & management', 'Paid ads (Meta/Google/LinkedIn)', 'Email & campaign reporting', 'Content strategy & production', 'Influencer & PR activation', 'Campaign performance dashboards'],
+    price: 'Monthly Retainers',
+  },
+  {
+    _id: '4', slug: { current: 'print-production' }, number: '04',
+    title: 'Print & Production',
+    tagline: 'From screen to physical.',
+    description: 'Corporate printing, event branding, signage, and packaging production—managed end-to-end so quality stays consistent.',
+    outcomes: ['Corporate stationery & brochures', 'Event branding & large format', 'Packaging production support', 'Signage & environmental graphics', 'Exhibition & trade show materials', 'Print project management'],
+    price: 'Production · Fulfilment',
   },
 ]
 
@@ -40,15 +48,15 @@ export default async function ServicesPage() {
       {/* Header */}
       <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">What We Do</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Full-Service, Structured</p>
           <h1
             className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
-            Built to drive<br />real revenue.
+            Everything your brand needs.<br />One integrated agency.
           </h1>
           <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.55)] max-w-xl leading-relaxed">
-            Three tightly integrated service pillars. Each can stand alone or be combined into a fully managed revenue engine.
+            We deliver brand, digital, marketing, and production with a single creative direction—so every touchpoint looks, feels, and performs like one brand.
           </p>
         </div>
       </section>
@@ -108,13 +116,13 @@ export default async function ServicesPage() {
             Not sure where to start?
           </h2>
           <p className="text-[rgba(242,238,255,0.55)] mb-8">
-            Book a complimentary strategy call. We&apos;ll identify your biggest revenue lever and map the right engagement.
+            Book a complimentary Brand Strategy Call. We&apos;ll review your current brand, identify the biggest opportunities, and map the right engagement for your goals.
           </p>
           <Link
             href="/contact"
             className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-10 py-4 hover:bg-[#E0AAFF] transition-colors duration-200"
           >
-            Book Strategy Call
+            Book a Brand Strategy Call
           </Link>
         </div>
       </section>

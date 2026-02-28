@@ -51,7 +51,7 @@ export default function Nav() {
               href="/contact"
               className="font-mono text-[11px] tracking-[0.12em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-[22px] py-[10px] hover:bg-[#E0AAFF] transition-colors duration-200"
             >
-              Book Strategy Call
+              Book Strategy Call →
             </Link>
           </li>
         </ul>

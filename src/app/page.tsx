@@ -56,19 +56,18 @@ export default async function HomePage() {
 
         <div className="relative max-w-[1280px] mx-auto w-full">
           <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#C084FC] mb-8">
-            Revenue Architecture · Africa &amp; Global
+            Integrated Creative Agency · Accra, Ghana
           </p>
 
           <h1 className="font-serif font-bold leading-[0.92] tracking-[-0.02em] text-[#F2EEFF] mb-10"
             style={{ fontSize: 'clamp(56px,9vw,120px)' }}>
-            We build<br />
-            <span className="text-[#C084FC]">predictable</span><br />
-            revenue.
+            We Build Brands<br />
+            That <span className="text-[#C084FC] italic">Perform</span><br />
+            Online &amp; Offline.
           </h1>
 
           <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(242,238,255,0.60)] max-w-xl leading-relaxed mb-12">
-            Strategy, demand generation, and automation for enterprise, fintech,
-            and high-growth companies across Africa and globally.
+            Brand identity, websites, marketing campaigns, and print production — delivered with one consistent standard, from concept to execution.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -76,13 +75,13 @@ export default async function HomePage() {
               href="/contact"
               className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-8 py-4 hover:bg-[#E0AAFF] transition-colors duration-200"
             >
-              Book Strategy Call
+              Book a Brand Strategy Call
             </Link>
             <Link
               href="/work"
               className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium border border-[rgba(192,132,252,0.35)] text-[rgba(242,238,255,0.70)] px-8 py-4 hover:border-[#C084FC] hover:text-[#F2EEFF] transition-colors duration-200"
             >
-              View Our Work
+              View Case Studies
             </Link>
           </div>
         </div>
@@ -90,10 +89,10 @@ export default async function HomePage() {
         {/* Client marquee */}
         <div className="relative max-w-[1280px] mx-auto w-full mt-24 overflow-hidden">
           <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-[rgba(242,238,255,0.28)] mb-6">
-            Trusted by leading companies
+            Trusted by
           </p>
           <div className="flex gap-16 animate-marquee whitespace-nowrap">
-            {['PanAfrica Pay', 'Kepler Systems', 'Verto Networks', 'Luminary Health', 'TradeAxis', 'NovaBridge', 'PanAfrica Pay', 'Kepler Systems', 'Verto Networks', 'Luminary Health', 'TradeAxis', 'NovaBridge'].map((name, i) => (
+            {['Finserv Africa', 'Meridian Health', 'Volta Capital', 'PrimeRealty GH', 'TechBridge NG', 'AfriCare Group', 'Kora Finance', 'Finserv Africa', 'Meridian Health', 'Volta Capital', 'PrimeRealty GH', 'TechBridge NG', 'AfriCare Group', 'Kora Finance'].map((name, i) => (
               <span key={i} className="font-mono text-[11px] tracking-[0.18em] uppercase text-[rgba(242,238,255,0.22)]">{name}</span>
             ))}
           </div>
@@ -104,10 +103,10 @@ export default async function HomePage() {
       <section className="bg-[#110828] border-t-[3px] border-t-[#C084FC] border-b border-b-[rgba(192,132,252,0.08)] px-[clamp(24px,5vw,80px)] py-16">
         <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
           {[
-            { num: '$280M+', label: 'Revenue Generated' },
-            { num: '40+', label: 'Clients Globally' },
-            { num: '6', label: 'African Markets' },
-            { num: '94%', label: 'Retention Rate' },
+            { num: '8.4×', label: 'Average ROI — enterprise clients, Year 1' },
+            { num: '62%', label: 'Avg increase in qualified pipeline within 90 days' },
+            { num: '$47M', label: 'In verified client revenue attributed to our systems' },
+            { num: '94%', label: 'Client retention rate' },
           ].map(({ num, label }) => (
             <div key={label}>
               <p className="font-serif font-bold text-[#F2EEFF] mb-1"
@@ -123,12 +122,12 @@ export default async function HomePage() {
         <div className="max-w-[1280px] mx-auto">
           <div className="flex items-end justify-between mb-16 gap-6 flex-wrap">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-4">Selected Work</p>
+              <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-4">Verified Results</p>
               <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight"
-                style={{ fontSize: 'clamp(36px,5vw,64px)' }}>Results that compound.</h2>
+                style={{ fontSize: 'clamp(36px,5vw,64px)' }}>The work<br />speaks clearly.</h2>
             </div>
             <Link href="/work" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(242,238,255,0.45)] hover:text-[#C084FC] transition-colors duration-200 shrink-0">
-              All case studies →
+              All Case Studies →
             </Link>
           </div>
 
@@ -156,50 +155,63 @@ export default async function HomePage() {
       {/* ── SERVICES ─────────────────────────────────────────── */}
       <section className="bg-[#110828] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <div className="mb-16">
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-4">What We Do</p>
-            <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight"
-              style={{ fontSize: 'clamp(36px,5vw,64px)' }}>Three pillars.<br />One engine.</h2>
+          <div className="mb-16 text-center">
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-4">Full-Service, Structured</p>
+            <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-4"
+              style={{ fontSize: 'clamp(36px,5vw,64px)' }}>Everything your brand needs.<br />One integrated agency.</h2>
+            <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.50)] max-w-2xl mx-auto">
+              We deliver brand, digital, marketing, and production with a single creative direction—so every touchpoint looks, feels, and performs like one brand.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                num: '01', slug: 'revenue-strategy', title: 'Revenue Strategy',
-                tagline: 'Architecture before execution.',
-                description: 'We map your entire revenue system — ICP, GTM motion, pipeline design, pricing, and competitive positioning — then build the playbook your team can execute.',
-                outcomes: ['Market & ICP definition', 'GTM motion design', 'Competitive positioning', 'Revenue model architecture'],
+                num: '01', slug: 'brand-identity', title: 'Brand & Identity',
+                tagline: 'Brand systems that scale.',
+                description: 'Logo and identity design, brand guidelines, corporate profiles, packaging design, and rebrands—built for clarity and consistency.',
+                outcomes: ['Logo & identity suite', 'Brand guidelines & templates', 'Packaging & collateral design'],
+                pricing: 'Projects · Retainers',
               },
               {
-                num: '02', slug: 'demand-generation', title: 'Demand Generation',
-                tagline: 'Demand you own, not rent.',
-                description: 'Full-funnel demand programs: content, paid, ABM, outbound, and partner channels — built to generate pipeline that converts.',
-                outcomes: ['Multi-channel demand programs', 'ABM & account targeting', 'Content & SEO systems', 'Paid media management'],
+                num: '02', slug: 'web-digital', title: 'Web & Digital',
+                tagline: 'Websites built to convert.',
+                description: 'UX-led websites, landing pages, and e-commerce that look premium and guide visitors to take action—fast, mobile-first, and measurable.',
+                outcomes: ['UX/UI + web development', 'Landing pages & CRO', 'Analytics & lead capture'],
+                pricing: 'Build · Maintain',
               },
               {
-                num: '03', slug: 'revenue-operations', title: 'Revenue Operations',
-                tagline: 'Systems that scale with you.',
-                description: 'CRM architecture, automation, attribution, and RevOps infrastructure so your team has the data and tooling to hit targets consistently.',
-                outcomes: ['CRM design & implementation', 'Sales automation & sequences', 'Attribution & reporting', 'Tech stack optimisation'],
+                num: '03', slug: 'marketing-campaigns', title: 'Marketing & Campaigns',
+                tagline: 'Creative that drives demand.',
+                description: 'Content, social media, paid ads, email, and campaign execution—designed with a clear message and tracked outcomes.',
+                outcomes: ['Social content & management', 'Paid ads (Meta/Google/LinkedIn)', 'Email & campaign reporting'],
+                pricing: 'Monthly Retainers',
               },
-            ].map(({ num, slug, title, tagline, description, outcomes }) => (
+              {
+                num: '04', slug: 'print-production', title: 'Print & Production',
+                tagline: 'From screen to physical.',
+                description: 'Corporate printing, event branding, signage, and packaging production—managed end-to-end so quality stays consistent.',
+                outcomes: ['Corporate stationery & brochures', 'Event branding & large format', 'Packaging production support'],
+                pricing: 'Production · Fulfilment',
+              },
+            ].map(({ num, slug, title, tagline, description, outcomes, pricing }) => (
               <Link
                 key={num}
                 href={`/services/${slug}`}
-                className="group relative block p-8 border border-[rgba(192,132,252,0.08)] bg-[#09041A] hover:border-[rgba(192,132,252,0.30)] transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col p-8 border border-[rgba(192,132,252,0.08)] bg-[#09041A] hover:border-[rgba(192,132,252,0.30)] transition-all duration-300 overflow-hidden"
               >
                 {/* Watermark number */}
                 <span className="absolute bottom-4 right-6 font-serif font-bold text-[120px] leading-none text-[rgba(192,132,252,0.04)] select-none pointer-events-none group-hover:text-[rgba(192,132,252,0.08)] transition-colors duration-300">
                   {num}
                 </span>
 
-                <div className="relative">
+                <div className="relative flex-1">
                   <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C084FC] mb-6">{num}</p>
-                  <h3 className="font-serif text-[26px] font-bold text-[#F2EEFF] mb-2">{title}</h3>
+                  <h3 className="font-serif text-[24px] font-bold text-[#F2EEFF] mb-2">{title}</h3>
                   <p className="font-mono text-[11px] tracking-[0.08em] text-[rgba(242,238,255,0.40)] italic mb-5">{tagline}</p>
                   <p className="text-[13px] text-[rgba(242,238,255,0.55)] leading-relaxed mb-8">{description}</p>
 
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-8">
                     {outcomes.map(o => (
                       <li key={o} className="flex items-start gap-2">
                         <span className="text-[#C084FC] mt-0.5 shrink-0 text-[10px]">▸</span>
@@ -208,6 +220,8 @@ export default async function HomePage() {
                     ))}
                   </ul>
                 </div>
+
+                <p className="relative font-mono text-[9px] tracking-[0.16em] uppercase text-[rgba(242,238,255,0.25)] border-t border-[rgba(192,132,252,0.08)] pt-4">{pricing}</p>
               </Link>
             ))}
           </div>
@@ -246,22 +260,33 @@ export default async function HomePage() {
       <section className="relative bg-[#110828] px-[clamp(24px,5vw,80px)] py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(192,132,252,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="relative max-w-[1280px] mx-auto text-center">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Ready to Scale?</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Next Step</p>
           <h2
             className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6"
             style={{ fontSize: 'clamp(40px,6vw,80px)' }}
           >
-            Let&apos;s build your<br />revenue engine.
+            Stop hoping<br />for growth.<br /><span className="italic">Engineer it.</span>
           </h2>
           <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.55)] max-w-lg mx-auto mb-12">
-            Book a complimentary 45-minute strategy call. We&apos;ll audit your current pipeline, identify the biggest growth levers, and outline a roadmap.
+            The Brand Strategy Call is a 45-minute session with a senior Apex Growth strategist. We&apos;ll review your current operation, identify the highest-leverage growth opportunities, and outline exactly what a brand architecture would look like for your business. No pitch. No pressure. Just strategic clarity.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-12 py-5 hover:bg-[#E0AAFF] transition-colors duration-200"
-          >
-            Book Strategy Call
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-12 py-5 hover:bg-[#E0AAFF] transition-colors duration-200"
+            >
+              Book Your Brand Strategy Call
+            </Link>
+            <Link
+              href="/work"
+              className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium border border-[rgba(192,132,252,0.35)] text-[rgba(242,238,255,0.70)] px-8 py-5 hover:border-[#C084FC] hover:text-[#F2EEFF] transition-colors duration-200"
+            >
+              Review Our Results First
+            </Link>
+          </div>
+          <p className="font-mono text-[9px] tracking-[0.12em] uppercase text-[rgba(242,238,255,0.25)] mt-8">
+            45 minutes &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Senior strategist only &nbsp;·&nbsp; Limited availability
+          </p>
         </div>
       </section>
     </>

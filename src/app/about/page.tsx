@@ -16,8 +16,8 @@ const values = [
 ]
 
 const fallbackCareers = [
-  { _id: '1', title: 'Senior GTM Strategist', department: 'Strategy', type: 'Full-time', location: 'Accra / Remote', excerpt: 'Lead GTM strategy engagements for enterprise clients across Africa and EMEA.' },
-  { _id: '2', title: 'Demand Generation Manager', department: 'Demand Gen', type: 'Full-time', location: 'Lagos / Remote', excerpt: 'Build and manage full-funnel demand programs for our portfolio of high-growth clients.' },
+  { _id: '1', title: 'Brand Strategist', department: 'Brand', type: 'Contract / Full-time', location: 'Accra / Remote', excerpt: 'Own brand strategy, positioning, and identity direction for creative engagements.' },
+  { _id: '2', title: 'Performance Marketing Lead', department: 'Performance', type: 'Contract / Full-time', location: 'Accra / Remote', excerpt: 'Run LinkedIn/Google demand gen, attribution, and conversion optimisation for client campaigns.' },
 ]
 
 export default async function AboutPage() {
@@ -37,10 +37,10 @@ export default async function AboutPage() {
             className="font-serif font-bold text-[#F2EEFF] leading-tight mb-8"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
-            Revenue architects<br />for Africa&apos;s best<br />companies.
+            One agency.<br />Every brand<br />touchpoint.
           </h1>
           <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.55)] max-w-2xl leading-relaxed">
-            Apex Growth Partners was founded on a simple observation: most African companies with great products fail to build the revenue systems that match their ambition. We exist to close that gap.
+            Apex Growth Partners is a full-service creative agency based in Accra, Ghana. We deliver brand identity, web, marketing, and print production under one roof — with a single creative direction and measurable results.
           </p>
         </div>
       </section>
@@ -51,17 +51,17 @@ export default async function AboutPage() {
           <div>
             <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Our Mission</p>
             <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6" style={{ fontSize: 'clamp(28px,3.5vw,48px)' }}>
-              Predictable revenue for ambitious African companies.
+              Brand architecture for Africa&apos;s most ambitious companies.
             </h2>
             <p className="text-[15px] text-[rgba(242,238,255,0.60)] leading-relaxed">
-              We believe Africa&apos;s best companies deserve the same calibre of revenue expertise that top global companies take for granted. That means world-class strategy, execution discipline, and systems that scale — built for African market realities.
+              We believe Africa&apos;s best businesses deserve the same calibre of creative expertise that top global brands take for granted. That means world-class design, consistent messaging, and brand systems that scale — built for African market realities.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-6">
             {[
-              { num: '$280M+', label: 'Revenue Generated' },
-              { num: '40+', label: 'Clients Served' },
-              { num: '6', label: 'African Markets' },
+              { num: '200+', label: 'Brands Built' },
+              { num: '1,500+', label: 'Assets Produced' },
+              { num: '72hr', label: 'Fast Turnaround' },
               { num: '94%', label: 'Client Retention' },
             ].map(({ num, label }) => (
               <div key={label} className="border border-[rgba(192,132,252,0.12)] p-6">
@@ -122,10 +122,10 @@ export default async function AboutPage() {
         <div className="max-w-[1280px] mx-auto">
           <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Careers</p>
           <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
-            Build Africa&apos;s revenue future.
+            Build careers that move markets.
           </h2>
           <p className="text-[15px] text-[rgba(242,238,255,0.55)] max-w-xl mb-16">
-            We are a small, high-calibre team. Every hire makes a material difference to our clients and our culture. We hire for intellectual rigour, execution discipline, and genuine passion for revenue building.
+            We hire operators, strategists, and builders who are serious about results. No passengers. Every hire makes a material difference to our clients and our culture.
           </p>
 
           <div className="space-y-4">

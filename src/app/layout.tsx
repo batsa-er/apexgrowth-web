@@ -8,21 +8,37 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Apex Growth Partners | Revenue Architecture for Africa',
-  description: 'We build predictable revenue systems for enterprise, fintech, and high-growth companies across Africa. Strategy, demand generation, and automation at scale.',
+  title: 'Apex Creative Studio | Brand, Digital, Marketing & Print',
+  description: 'A full-service creative agency delivering brand identity, websites, marketing campaigns, and print production—built for businesses that want consistency, quality, and results.',
   metadataBase: new URL('https://apexgrowth.africa'),
+  keywords: 'digital marketing agency Ghana, B2B marketing Africa, revenue growth agency, demand generation Africa, fintech marketing Ghana, performance marketing agency Accra, CRM automation Africa, marketing strategy Ghana',
+  authors: [{ name: 'Apex Growth Partners' }],
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
+  alternates: { canonical: 'https://apexgrowth.africa/' },
   openGraph: {
-    title: 'Apex Growth Partners | Revenue Architecture for Africa',
-    description: 'We build predictable revenue systems for enterprise, fintech, and high-growth companies across Africa.',
+    title: 'Apex Creative Studio | Brand, Digital, Marketing & Print',
+    description: 'We build brands that perform—online and offline. Brand identity, websites, marketing campaigns, and print production under one strategic roof.',
     url: 'https://apexgrowth.africa',
     siteName: 'Apex Growth Partners',
     locale: 'en_GB',
     type: 'website',
+    images: [{ url: 'https://apexgrowth.africa/og-image.jpg', width: 1200, height: 630, alt: 'Apex Growth Partners — Brand Architecture for Africa' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apex Growth Partners | Revenue Architecture for Africa',
-    description: 'We build predictable revenue systems for enterprise, fintech, and high-growth companies across Africa.',
+    site: '@apexgrowth_af',
+    creator: '@apexgrowth_af',
+    title: 'Apex Creative Studio | Brand, Digital, Marketing & Print',
+    description: 'We build brands that perform—online and offline. Brand identity, websites, marketing campaigns, and print production under one roof.',
+    images: [{ url: 'https://apexgrowth.africa/og-image.jpg', alt: 'Apex Growth Partners — Brand Architecture for Africa' }],
+  },
+  other: {
+    'geo.region': 'GH-AA',
+    'geo.placename': 'Accra, Ghana',
+    'geo.position': '5.6037;-0.1870',
+    'ICBM': '5.6037, -0.1870',
+    'language': 'English',
+    'revisit-after': '7 days',
   },
 }
 
