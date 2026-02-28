@@ -5,25 +5,25 @@ import CaseCard from '@/components/CaseCard'
 // Fallback data for when Sanity is not connected
 const fallbackCaseStudies = [
   {
-    _id: '1', slug: { current: 'fintech-expansion' }, client: 'PanAfrica Pay',
-    industry: 'Fintech', summary: 'Rebuilt pipeline architecture and demand gen motion across 6 African markets.',
-    metric1_num: '312%', metric1_label: 'Pipeline Growth',
-    metric2_num: '4.1×', metric2_label: 'SQL Velocity',
-    metric3_num: '18mo', metric3_label: 'Payback Period', accent: 'purple',
+    _id: '1', slug: { current: 'panafricapay-brand' }, client: 'PanAfrica Pay',
+    industry: 'Fintech', summary: 'Complete brand overhaul — identity, web, and marketing assets — ahead of a pan-African market expansion.',
+    metric1_num: '3×', metric1_label: 'Brand Recall',
+    metric2_num: '68%', metric2_label: 'Web Conversion Lift',
+    metric3_num: '6wks', metric3_label: 'Launch Timeline', accent: 'purple',
   },
   {
-    _id: '2', slug: { current: 'enterprise-saas' }, client: 'Kepler Systems',
-    industry: 'Enterprise SaaS', summary: 'Deployed ABM motion and full-funnel automation for EMEA enterprise segment.',
-    metric1_num: '89%', metric1_label: 'Win Rate Lift',
-    metric2_num: '$2.4M', metric2_label: 'Incremental ARR',
-    metric3_num: '60d', metric3_label: 'Time to Revenue', accent: 'cyan',
+    _id: '2', slug: { current: 'kepler-systems-web' }, client: 'Kepler Systems',
+    industry: 'Enterprise SaaS', summary: 'Redesigned enterprise website and built a content marketing system targeting EMEA decision-makers.',
+    metric1_num: '4.4×', metric1_label: 'Organic Traffic',
+    metric2_num: '52%', metric2_label: 'Demo Request Rate',
+    metric3_num: '90d', metric3_label: 'Go-Live', accent: 'cyan',
   },
   {
-    _id: '3', slug: { current: 'telecoms-growth' }, client: 'Verto Networks',
-    industry: 'Telecoms', summary: 'Overhauled GTM strategy and revenue operations for B2B telecoms leader.',
-    metric1_num: '2.8×', metric1_label: 'Revenue Growth',
-    metric2_num: '41%', metric2_label: 'CAC Reduction',
-    metric3_num: '14d', metric3_label: 'Sales Cycle Cut', accent: 'gold',
+    _id: '3', slug: { current: 'verto-networks-identity' }, client: 'Verto Networks',
+    industry: 'Telecoms', summary: 'Full rebrand and integrated marketing campaign for a B2B telecoms leader entering three new markets.',
+    metric1_num: '2.2×', metric1_label: 'Brand Equity Score',
+    metric2_num: '41%', metric2_label: 'Campaign Reach',
+    metric3_num: '8wks', metric3_label: 'Rebrand to Launch', accent: 'gold',
   },
 ]
 
@@ -52,25 +52,25 @@ export default async function HomePage() {
       <section className="relative min-h-screen flex flex-col justify-center px-[clamp(24px,5vw,80px)] pt-24 pb-20 overflow-hidden bg-[#F6F7FB]">
         {/* Radial glows */}
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.08)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.06)_0%,transparent_70%)] pointer-events-none" />
 
         <div className="relative max-w-[1280px] mx-auto w-full">
-          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#2563EB] mb-8">
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#2563EB] mb-8 hero-in hero-in-1">
             Integrated Creative Agency · Accra, Ghana
           </p>
 
-          <h1 className="font-serif font-bold leading-[1.0] tracking-[-0.03em] text-[#0B0F14] mb-10"
+          <h1 className="font-serif font-bold leading-[1.0] tracking-[-0.03em] text-[#0B0F14] mb-10 hero-in hero-in-2"
             style={{ fontSize: 'clamp(52px,8vw,108px)' }}>
             We Build Brands<br />
             That <span className="text-[#2563EB] italic">Perform</span><br />
             Online &amp; Offline.
           </h1>
 
-          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(11,15,20,0.60)] max-w-xl leading-relaxed mb-12">
+          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(11,15,20,0.60)] max-w-xl leading-relaxed mb-12 hero-in hero-in-3">
             Brand identity, websites, marketing campaigns, and print production — delivered with one consistent standard, from concept to execution.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 hero-in hero-in-4">
             <Link
               href="/contact"
               className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-8 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
@@ -87,11 +87,11 @@ export default async function HomePage() {
         </div>
 
         {/* Client marquee */}
-        <div className="relative max-w-[1280px] mx-auto w-full mt-24 overflow-hidden">
+        <div className="relative max-w-[1280px] mx-auto w-full mt-24 overflow-hidden hero-in hero-in-5">
           <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-[rgba(11,15,20,0.28)] mb-6">
             Trusted by
           </p>
-          <div className="flex gap-16 animate-marquee whitespace-nowrap">
+          <div className="flex gap-16 animate-marquee whitespace-nowrap" aria-hidden="true">
             {['Finserv Africa', 'Meridian Health', 'Volta Capital', 'PrimeRealty GH', 'TechBridge NG', 'AfriCare Group', 'Kora Finance', 'Finserv Africa', 'Meridian Health', 'Volta Capital', 'PrimeRealty GH', 'TechBridge NG', 'AfriCare Group', 'Kora Finance'].map((name, i) => (
               <span key={i} className="font-mono text-[11px] tracking-[0.18em] uppercase text-[rgba(11,15,20,0.22)]">{name}</span>
             ))}
@@ -107,8 +107,8 @@ export default async function HomePage() {
             { num: '62%', label: 'Avg increase in qualified pipeline within 90 days' },
             { num: '$47M', label: 'In verified client revenue attributed to our systems' },
             { num: '94%', label: 'Client retention rate' },
-          ].map(({ num, label }) => (
-            <div key={label}>
+          ].map(({ num, label }, i) => (
+            <div key={label} className="reveal-scale" style={{ transitionDelay: `${i * 90}ms` }}>
               <p className="font-serif font-bold text-[#0B0F14] mb-1"
                 style={{ fontSize: 'clamp(36px,5vw,64px)', lineHeight: 1 }}>{num}</p>
               <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.40)]">{label}</p>
@@ -120,7 +120,7 @@ export default async function HomePage() {
       {/* ── WORK ─────────────────────────────────────────────── */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex items-end justify-between mb-16 gap-6 flex-wrap">
+          <div className="flex items-end justify-between mb-16 gap-6 flex-wrap reveal">
             <div>
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-4">Verified Results</p>
               <h2 className="font-serif font-bold text-[#0B0F14] leading-tight"
@@ -132,21 +132,22 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {caseStudies.map((cs: any) => (
-              <CaseCard
-                key={cs._id}
-                slug={cs.slug?.current || cs.slug}
-                client={cs.client}
-                industry={cs.industry}
-                summary={cs.summary}
-                metric1_num={cs.metric1_num}
-                metric1_label={cs.metric1_label}
-                metric2_num={cs.metric2_num}
-                metric2_label={cs.metric2_label}
-                metric3_num={cs.metric3_num}
-                metric3_label={cs.metric3_label}
-                accent={cs.accent}
-              />
+            {caseStudies.map((cs: any, i: number) => (
+              <div key={cs._id} className="reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+                <CaseCard
+                  slug={cs.slug?.current || cs.slug}
+                  client={cs.client}
+                  industry={cs.industry}
+                  summary={cs.summary}
+                  metric1_num={cs.metric1_num}
+                  metric1_label={cs.metric1_label}
+                  metric2_num={cs.metric2_num}
+                  metric2_label={cs.metric2_label}
+                  metric3_num={cs.metric3_num}
+                  metric3_label={cs.metric3_label}
+                  accent={cs.accent}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -155,7 +156,7 @@ export default async function HomePage() {
       {/* ── SERVICES ─────────────────────────────────────────── */}
       <section className="bg-[#EEF2FF] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <div className="mb-16 text-center">
+          <div className="mb-16 text-center reveal">
             <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-4">Full-Service, Structured</p>
             <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4"
               style={{ fontSize: 'clamp(36px,5vw,64px)' }}>Everything your brand needs.<br />One integrated agency.</h2>
@@ -194,14 +195,15 @@ export default async function HomePage() {
                 outcomes: ['Corporate stationery & brochures', 'Event branding & large format', 'Packaging production support'],
                 pricing: 'Production · Fulfilment',
               },
-            ].map(({ num, slug, title, tagline, description, outcomes, pricing }) => (
+            ].map(({ num, slug, title, tagline, description, outcomes, pricing }, i) => (
               <Link
                 key={num}
                 href={`/services/${slug}`}
-                className="group relative flex flex-col p-8 border border-[rgba(37,99,235,0.08)] bg-[#F6F7FB] hover:border-[rgba(37,99,235,0.30)] transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col p-8 border border-[rgba(37,99,235,0.08)] bg-[#F6F7FB] hover:border-[rgba(37,99,235,0.30)] transition-all duration-300 overflow-hidden reveal"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
                 {/* Watermark number */}
-                <span className="absolute bottom-4 right-6 font-serif font-bold text-[120px] leading-none text-[rgba(192,132,252,0.04)] select-none pointer-events-none group-hover:text-[rgba(192,132,252,0.08)] transition-colors duration-300">
+                <span className="absolute bottom-4 right-6 font-serif font-bold text-[120px] leading-none text-[rgba(37,99,235,0.04)] select-none pointer-events-none group-hover:text-[rgba(37,99,235,0.08)] transition-colors duration-300">
                   {num}
                 </span>
 
@@ -232,18 +234,18 @@ export default async function HomePage() {
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-1 mb-10">
+            <div className="inline-flex items-center gap-1 mb-10 reveal">
               {[...Array(5)].map((_, i) => (
                 <span key={i} className="text-[#2563EB] text-lg">★</span>
               ))}
             </div>
             <blockquote
-              className="font-serif font-semibold text-[#0B0F14] leading-snug mb-10"
-              style={{ fontSize: 'clamp(22px,3vw,36px)' }}
+              className="font-serif font-semibold text-[#0B0F14] leading-snug mb-10 reveal"
+              style={{ fontSize: 'clamp(22px,3vw,36px)', transitionDelay: '100ms' }}
             >
               &ldquo;{testimonial.quote}&rdquo;
             </blockquote>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 reveal" style={{ transitionDelay: '220ms' }}>
               <div className="w-10 h-10 rounded-full bg-[rgba(37,99,235,0.15)] border border-[rgba(37,99,235,0.30)] flex items-center justify-center">
                 <span className="font-mono text-[10px] text-[#2563EB]">{testimonial.initials}</span>
               </div>
@@ -258,8 +260,8 @@ export default async function HomePage() {
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="relative bg-[#EEF2FF] px-[clamp(24px,5vw,80px)] py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(192,132,252,0.12)_0%,transparent_70%)] pointer-events-none" />
-        <div className="relative max-w-[1280px] mx-auto text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.08)_0%,transparent_70%)] pointer-events-none" />
+        <div className="relative max-w-[1280px] mx-auto text-center reveal">
           <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Next Step</p>
           <h2
             className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"

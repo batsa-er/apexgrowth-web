@@ -20,15 +20,15 @@ export default function ContactPage() {
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Contact</p>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Contact</p>
             <h1
-              className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
+              className="font-serif font-bold text-[#0B0F14] leading-tight mb-6 hero-in hero-in-2"
               style={{ fontSize: 'clamp(44px,6vw,80px)' }}
             >
-              Let&apos;s talk<br />revenue.
+              Let&apos;s build<br />your brand.
             </h1>
-            <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] leading-relaxed mb-12">
-              Book a complimentary 45-minute strategy call. We will audit your current pipeline, identify the biggest growth levers, and outline a roadmap — no commitment required.
+            <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] leading-relaxed mb-12 hero-in hero-in-3">
+              Book a complimentary 45-minute Brand Strategy Call. We will review your current brand, identify the biggest creative opportunities, and map the right engagement for your goals — no commitment required.
             </p>
 
             <div className="space-y-6">
@@ -46,7 +46,7 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="border border-[rgba(15,23,42,0.12)] bg-white p-10 shadow-sm">
+          <div className="border border-[rgba(15,23,42,0.12)] bg-white p-10 shadow-sm reveal" style={{ transitionDelay: '160ms' }}>
             {status === 'sent' ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 rounded-full bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.30)] flex items-center justify-center mx-auto mb-6">
@@ -95,18 +95,21 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.35)] mb-2">What are you looking for?</label>
-                  <select
-                    value={form.service}
-                    onChange={e => setForm(f => ({ ...f, service: e.target.value }))}
-                    className="w-full bg-[rgba(11,15,20,0.04)] border border-[rgba(37,99,235,0.15)] px-4 py-3 text-[14px] text-[rgba(11,15,20,0.60)] font-mono focus:outline-none focus:border-[#2563EB] transition-colors appearance-none"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="revenue-strategy">Revenue Strategy</option>
-                    <option value="demand-generation">Demand Generation</option>
-                    <option value="revenue-operations">Revenue Operations</option>
-                    <option value="full-engine">Full Revenue Engine</option>
-                    <option value="other">Not sure yet</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      value={form.service}
+                      onChange={e => setForm(f => ({ ...f, service: e.target.value }))}
+                      className="w-full bg-[rgba(11,15,20,0.04)] border border-[rgba(37,99,235,0.15)] px-4 py-3 text-[14px] text-[rgba(11,15,20,0.60)] font-mono focus:outline-none focus:border-[#2563EB] transition-colors appearance-none pr-10"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="brand-identity">Brand &amp; Identity</option>
+                      <option value="web-digital">Web &amp; Digital</option>
+                      <option value="marketing-campaigns">Marketing &amp; Campaigns</option>
+                      <option value="print-production">Print &amp; Production</option>
+                      <option value="other">Not sure yet</option>
+                    </select>
+                    <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[rgba(11,15,20,0.40)] text-[10px]">▾</span>
+                  </div>
                 </div>
 
                 <div>

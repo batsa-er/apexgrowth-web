@@ -48,14 +48,14 @@ export default async function ServicesPage() {
       {/* Header */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Full-Service, Structured</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Full-Service, Structured</p>
           <h1
-            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6 hero-in hero-in-2"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             Everything your brand needs.<br />One integrated agency.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
             We deliver brand, digital, marketing, and production with a single creative direction—so every touchpoint looks, feels, and performs like one brand.
           </p>
         </div>
@@ -67,10 +67,11 @@ export default async function ServicesPage() {
           {services.map((s: any, i: number) => (
             <div
               key={s._id}
-              className="relative border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-12 overflow-hidden group hover:border-[rgba(37,99,235,0.30)] transition-all duration-300"
+              className="relative border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-12 overflow-hidden group hover:border-[rgba(37,99,235,0.30)] transition-all duration-300 reveal"
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Watermark */}
-              <span className="absolute bottom-6 right-10 font-serif font-bold text-[160px] leading-none text-[rgba(192,132,252,0.04)] select-none pointer-events-none group-hover:text-[rgba(192,132,252,0.07)] transition-colors duration-300">
+              <span className="absolute bottom-6 right-10 font-serif font-bold text-[160px] leading-none text-[rgba(37,99,235,0.04)] select-none pointer-events-none group-hover:text-[rgba(37,99,235,0.07)] transition-colors duration-300">
                 {s.number || `0${i + 1}`}
               </span>
 

@@ -7,34 +7,42 @@ export async function generateStaticParams() {
     const s = await getServices()
     return s.map((svc: any) => ({ slug: svc.slug?.current || svc.slug }))
   } catch {
-    return ['revenue-strategy', 'demand-generation', 'revenue-operations'].map(slug => ({ slug }))
+    return ['brand-identity', 'web-digital', 'marketing-campaigns', 'print-production'].map(slug => ({ slug }))
   }
 }
 
 const fallbackServices: Record<string, any> = {
-  'revenue-strategy': {
-    number: '01', title: 'Revenue Strategy', tagline: 'Architecture before execution.',
-    description: 'We map your entire revenue system — ICP, GTM motion, pipeline design, pricing, and competitive positioning — then build the playbook your team can execute.',
-    outcomes: ['Market & ICP definition', 'GTM motion design', 'Competitive positioning', 'Revenue model architecture', 'Pricing & packaging', 'Sales playbook development'],
-    price: 'From $12,000',
-    detail: 'Most companies have a sales problem that is actually a strategy problem. They hire more reps, run more ads, and push harder on the same broken motion. We start by diagnosing what is actually holding your revenue back — then redesign the system around your real ICP, your strongest channels, and your most profitable deals.',
-    process: ['Revenue & pipeline audit', 'ICP and market segmentation', 'GTM motion design', 'Pricing & packaging review', 'Playbook & enablement build', 'Handoff & team coaching'],
+  'brand-identity': {
+    number: '01', title: 'Brand & Identity', tagline: 'Brand systems that scale.',
+    description: 'Logo and identity design, brand guidelines, corporate profiles, packaging design, and rebrands—built for clarity and consistency across every touchpoint.',
+    outcomes: ['Logo & identity suite', 'Brand guidelines & templates', 'Packaging & collateral design', 'Corporate profiles & presentations', 'Rebrand strategy & rollout', 'Brand audit & direction'],
+    price: 'Projects · Retainers',
+    detail: 'A brand is more than a logo — it is a system of decisions that determines how your business is perceived at every touchpoint. We design brand identities that are built to scale: clear, consistent, and distinctive enough to hold their own in competitive markets across Africa and globally.',
+    process: ['Brand discovery & audit', 'Positioning & creative direction', 'Identity design', 'Brand guidelines & system', 'Collateral & templates', 'Rollout & handoff'],
   },
-  'demand-generation': {
-    number: '02', title: 'Demand Generation', tagline: 'Demand you own, not rent.',
-    description: 'Full-funnel demand programs: content, paid, ABM, outbound, and partner channels — built to generate pipeline that converts.',
-    outcomes: ['Multi-channel demand programs', 'ABM & account targeting', 'Content & SEO systems', 'Paid media management', 'Outbound sequences', 'Partner channel activation'],
-    price: 'From $8,000 / mo',
-    detail: 'We build demand programs that create compounding pipeline — not one-time campaigns that disappear when the budget runs out. The goal is always owned demand: organic traffic, referral networks, and relationships that generate pipeline independent of spend.',
-    process: ['Demand audit & channel mapping', 'ICP-aligned content strategy', 'ABM target account list build', 'Campaign architecture & launch', 'Paid media setup & management', 'Monthly reporting & optimisation'],
+  'web-digital': {
+    number: '02', title: 'Web & Digital', tagline: 'Websites built to convert.',
+    description: 'UX-led websites, landing pages, and e-commerce that look premium and guide visitors to take action—fast, mobile-first, and measurable.',
+    outcomes: ['UX/UI + web development', 'Landing pages & CRO', 'Analytics & lead capture', 'E-commerce build & optimisation', 'SEO-ready architecture', 'Ongoing maintenance & support'],
+    price: 'Build · Maintain',
+    detail: 'Your website is often the first—and most decisive—impression a potential client gets of your brand. We build websites that are fast, mobile-first, and designed with one clear goal: converting visitors into enquiries or customers.',
+    process: ['UX strategy & wireframes', 'Visual design', 'Development & build', 'Analytics & tracking setup', 'Launch & QA', 'Ongoing support & maintenance'],
   },
-  'revenue-operations': {
-    number: '03', title: 'Revenue Operations', tagline: 'Systems that scale with you.',
-    description: 'CRM architecture, automation, attribution, and RevOps infrastructure so your team has the data and tooling to hit targets consistently.',
-    outcomes: ['CRM design & implementation', 'Sales automation & sequences', 'Attribution & reporting', 'Tech stack optimisation', 'Forecast & pipeline management', 'RevOps hiring & training'],
-    price: 'From $6,000 / mo',
-    detail: 'Revenue operations is the connective tissue between marketing, sales, and customer success. Without it, your data is unreliable, your forecasts are guesswork, and your team wastes hours on manual work. We build the infrastructure that gives your leadership team real-time visibility and your reps the tools they need to execute.',
-    process: ['CRM & tech stack audit', 'Data model & architecture design', 'CRM implementation & migration', 'Automation & sequence build', 'Dashboard & attribution setup', 'Ongoing RevOps retainer'],
+  'marketing-campaigns': {
+    number: '03', title: 'Marketing & Campaigns', tagline: 'Creative that drives demand.',
+    description: 'Content, social media, paid ads, email, and campaign execution—designed with a clear message and tracked outcomes.',
+    outcomes: ['Social content & management', 'Paid ads (Meta/Google/LinkedIn)', 'Email & campaign reporting', 'Content strategy & production', 'Influencer & PR activation', 'Campaign performance dashboards'],
+    price: 'Monthly Retainers',
+    detail: 'Marketing without creative direction is just noise. We build campaigns around a clear message and deploy them across the right channels — social, paid, email, and content — with reporting that ties spend to real outcomes.',
+    process: ['Audience & channel strategy', 'Creative direction & content', 'Campaign setup & launch', 'Community management', 'Performance reporting', 'Monthly review & optimisation'],
+  },
+  'print-production': {
+    number: '04', title: 'Print & Production', tagline: 'From screen to physical.',
+    description: 'Corporate printing, event branding, signage, and packaging production—managed end-to-end so quality stays consistent.',
+    outcomes: ['Corporate stationery & brochures', 'Event branding & large format', 'Packaging production support', 'Signage & environmental graphics', 'Exhibition & trade show materials', 'Print project management'],
+    price: 'Production · Fulfilment',
+    detail: 'A brand that only lives on screen is incomplete. We manage the full journey from digital design to physical production — coordinating print vendors, managing quality control, and delivering on time so your brand looks as good in the real world as it does online.',
+    process: ['Design & prepress preparation', 'Vendor sourcing & briefing', 'Production management', 'Quality control', 'Delivery & fulfilment', 'Post-production review'],
   },
 }
 
@@ -84,7 +92,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
             <ul className="space-y-4">
               {(svc.outcomes || []).map((o: string, i: number) => (
                 <li key={o} className="flex items-start gap-4">
-                  <span className="font-mono text-[10px] text-[rgba(192,132,252,0.50)] mt-0.5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-[10px] text-[#2563EB] mt-0.5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
                   <span className="font-mono text-[12px] tracking-[0.06em] text-[rgba(11,15,20,0.60)]">{o}</span>
                 </li>
               ))}

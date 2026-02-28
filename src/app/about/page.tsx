@@ -2,17 +2,17 @@ import Link from 'next/link'
 import { getCareers } from '@/sanity/queries'
 
 const team = [
-  { name: 'Kwame Asante', role: 'Founder & CEO', initials: 'KA', bio: 'Former VP Revenue at two African unicorns. 15 years building revenue systems across emerging markets.' },
-  { name: 'Adaeze Okonkwo', role: 'Head of Strategy', initials: 'AO', bio: 'Ex-McKinsey. Led GTM strategy for 20+ enterprise technology clients across EMEA and Africa.' },
-  { name: 'Seun Bankole', role: 'Head of Demand Generation', initials: 'SB', bio: 'Built demand programs for Series A to Series C fintech and SaaS companies. $150M+ pipeline generated.' },
-  { name: 'Yemi Adesanya', role: 'Head of Revenue Operations', initials: 'YA', bio: 'Scaled RevOps at three high-growth companies from seed to exit. Salesforce and HubSpot architect.' },
+  { name: 'Kwame Asante', role: 'Founder & Creative Director', initials: 'KA', bio: 'Founded Apex Growth to bring world-class creative thinking to African businesses. 15 years building brands across finance, healthcare, and technology sectors.' },
+  { name: 'Adaeze Okonkwo', role: 'Head of Brand Strategy', initials: 'AO', bio: 'Brand strategist with deep expertise in identity, positioning, and visual systems across EMEA and Africa. Previously strategy lead at a global creative consultancy.' },
+  { name: 'Seun Bankole', role: 'Head of Digital & Performance', initials: 'SB', bio: 'Led digital campaigns and performance marketing for high-growth consumer and B2B brands. Data-driven creative with a track record of measurable outcomes.' },
+  { name: 'Yemi Adesanya', role: 'Head of Production', initials: 'YA', bio: 'Manages end-to-end production across web, print, and brand — from vendor coordination to quality control. Delivered 500+ projects across 12 countries.' },
 ]
 
 const values = [
-  { num: '01', title: 'Results over activity', body: 'We measure everything against one metric: did it generate revenue? Strategy decks and campaign reports mean nothing without pipeline and closed deals.' },
-  { num: '02', title: 'Context over templates', body: 'African markets are not emerging markets in the Western sense. They require deep local knowledge, market-specific frameworks, and relationships built over years.' },
-  { num: '03', title: 'Embedded over advisory', body: 'We do not send PowerPoints and disappear. We build with your team, train your reps, and stay accountable to the outcomes.' },
-  { num: '04', title: 'Long-term over short-term', body: 'We only take engagements where we are confident we can deliver lasting impact. Quick wins that do not compound are not interesting to us.' },
+  { num: '01', title: 'Results over aesthetics', body: 'Beautiful work that does not perform is not great work. Every design decision, campaign, and asset is measured against one question: does it achieve the objective?' },
+  { num: '02', title: 'Context over templates', body: 'African markets have distinct audiences, visual cultures, and competitive landscapes. We do not import Western playbooks — we build creative that resonates where your brand actually operates.' },
+  { num: '03', title: 'Integrated over fragmented', body: 'Brand, digital, marketing, and print from four different agencies produces four different looks. We keep everything under one creative roof so your brand stays consistent at every touchpoint.' },
+  { num: '04', title: 'Long-term over short-term', body: 'We build brand systems designed to grow with your business. The goal is never a one-off deliverable — it is a creative foundation your team can operate and scale for years.' },
 ]
 
 const fallbackCareers = [
@@ -32,14 +32,14 @@ export default async function AboutPage() {
       {/* Header */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">About</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">About</p>
           <h1
-            className="font-serif font-bold text-[#0B0F14] leading-tight mb-8"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-8 hero-in hero-in-2"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             One agency.<br />Every brand<br />touchpoint.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-2xl leading-relaxed">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-2xl leading-relaxed hero-in hero-in-3">
             Apex Growth Partners is a full-service creative agency based in Accra, Ghana. We deliver brand identity, web, marketing, and print production under one roof — with a single creative direction and measurable results.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default async function AboutPage() {
       {/* Mission */}
       <section className="bg-[#EEF2FF] border-y border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
+          <div className="reveal">
             <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Our Mission</p>
             <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-6" style={{ fontSize: 'clamp(28px,3.5vw,48px)' }}>
               Brand architecture for Africa&apos;s most ambitious companies.
@@ -63,8 +63,8 @@ export default async function AboutPage() {
               { num: '1,500+', label: 'Assets Produced' },
               { num: '72hr', label: 'Fast Turnaround' },
               { num: '94%', label: 'Client Retention' },
-            ].map(({ num, label }) => (
-              <div key={label} className="border border-[rgba(37,99,235,0.12)] p-6">
+            ].map(({ num, label }, i) => (
+              <div key={label} className="border border-[rgba(37,99,235,0.12)] p-6 reveal-scale" style={{ transitionDelay: `${i * 80}ms` }}>
                 <p className="font-serif font-bold text-[#2563EB] mb-1" style={{ fontSize: 'clamp(32px,4vw,52px)', lineHeight: 1 }}>{num}</p>
                 <p className="font-mono text-[9px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
               </div>
@@ -76,14 +76,14 @@ export default async function AboutPage() {
       {/* Values */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">How We Work</p>
-          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-16" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 reveal">How We Work</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-16 reveal" style={{ fontSize: 'clamp(32px,4vw,56px)', transitionDelay: '80ms' }}>
             Principles we do not compromise on.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map(({ num, title, body }) => (
-              <div key={num} className="border border-[rgba(37,99,235,0.08)] bg-[#EEF2FF] p-8 relative overflow-hidden group">
-                <span className="absolute bottom-3 right-5 font-serif font-bold text-[100px] leading-none text-[rgba(192,132,252,0.04)] select-none pointer-events-none">
+            {values.map(({ num, title, body }, i) => (
+              <div key={num} className="border border-[rgba(37,99,235,0.08)] bg-[#EEF2FF] p-8 relative overflow-hidden group reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                <span className="absolute bottom-3 right-5 font-serif font-bold text-[100px] leading-none text-[rgba(37,99,235,0.04)] select-none pointer-events-none">
                   {num}
                 </span>
                 <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-4">{num}</p>
@@ -98,13 +98,13 @@ export default async function AboutPage() {
       {/* Team */}
       <section className="bg-[#EEF2FF] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">The Team</p>
-          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-16" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 reveal">The Team</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-16 reveal" style={{ fontSize: 'clamp(32px,4vw,56px)', transitionDelay: '80ms' }}>
             Operators. Not consultants.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map(({ name, role, initials, bio }) => (
-              <div key={name} className="border border-[rgba(37,99,235,0.08)] p-8">
+            {team.map(({ name, role, initials, bio }, i) => (
+              <div key={name} className="border border-[rgba(37,99,235,0.08)] p-8 reveal" style={{ transitionDelay: `${i * 80}ms` }}>
                 <div className="w-14 h-14 rounded-full bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.25)] flex items-center justify-center mb-6">
                   <span className="font-mono text-[12px] text-[#2563EB]">{initials}</span>
                 </div>
@@ -120,17 +120,17 @@ export default async function AboutPage() {
       {/* Careers */}
       <section id="careers" className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Careers</p>
-          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 reveal">Careers</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4 reveal" style={{ fontSize: 'clamp(32px,4vw,56px)', transitionDelay: '80ms' }}>
             Build careers that move markets.
           </h2>
-          <p className="text-[15px] text-[rgba(11,15,20,0.55)] max-w-xl mb-16">
+          <p className="text-[15px] text-[rgba(11,15,20,0.55)] max-w-xl mb-16 reveal" style={{ transitionDelay: '160ms' }}>
             We hire operators, strategists, and builders who are serious about results. No passengers. Every hire makes a material difference to our clients and our culture.
           </p>
 
           <div className="space-y-4">
-            {careers.map((job: any) => (
-              <div key={job._id} className="border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            {careers.map((job: any, i: number) => (
+              <div key={job._id} className="border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 reveal" style={{ transitionDelay: `${i * 80}ms` }}>
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{job.department}</span>

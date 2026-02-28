@@ -3,32 +3,32 @@ import { getInsights } from '@/sanity/queries'
 
 const fallback = [
   {
-    _id: '1', slug: { current: 'building-enterprise-pipeline-africa' },
-    title: 'Building Enterprise Pipeline in Africa: A GTM Framework',
-    tag: 'Strategy', label: 'GTM',
-    excerpt: 'Enterprise sales in African markets requires a fundamentally different approach to pipeline generation. Here is what we have learned across 40+ engagements.',
-    publishedAt: '2025-01-15', readTime: '8 min read',
+    _id: '1', slug: { current: 'brand-consistency-africa' },
+    title: 'Why Brand Consistency Is the Highest-Leverage Investment for African Businesses',
+    tag: 'Brand Strategy', label: 'Identity',
+    excerpt: 'Most growing companies underinvest in brand consistency. Here is what happens to customer perception — and revenue — when you get it right across every touchpoint.',
+    publishedAt: '2025-01-15', readTime: '7 min read',
   },
   {
-    _id: '2', slug: { current: 'why-abm-works-emerging-markets' },
-    title: 'Why ABM Works Better Than Broad Demand Gen in Emerging Markets',
-    tag: 'Demand Gen', label: 'ABM',
-    excerpt: 'Account-based marketing is often dismissed as a strategy for large enterprises. In our experience, it is the most efficient way to scale in markets with concentrated buyer pools.',
+    _id: '2', slug: { current: 'website-conversion-fundamentals' },
+    title: 'The 5 Website Fundamentals That Drive Conversions in African Markets',
+    tag: 'Web & Digital', label: 'CRO',
+    excerpt: 'Most business websites in Africa are information sites, not conversion tools. The gap between the two is where leads and deals are lost.',
     publishedAt: '2024-12-10', readTime: '6 min read',
   },
   {
-    _id: '3', slug: { current: 'revenue-operations-blueprint' },
-    title: 'The Revenue Operations Blueprint for High-Growth African Startups',
-    tag: 'RevOps', label: 'Operations',
-    excerpt: 'Most fast-growing startups delay building RevOps infrastructure until they hit a wall. Here is how to get ahead of the problem.',
-    publishedAt: '2024-11-20', readTime: '10 min read',
+    _id: '3', slug: { current: 'b2b-social-creative-lessons' },
+    title: 'What Actually Works in B2B Social Media Creative — Lessons from 50+ Campaigns',
+    tag: 'Marketing', label: 'Social',
+    excerpt: 'B2B social content in Africa tends to be too formal or too promotional. Here is what we have learned about creative that builds trust and drives enquiries.',
+    publishedAt: '2024-11-20', readTime: '8 min read',
   },
   {
-    _id: '4', slug: { current: 'fintech-gtm-playbook' },
-    title: 'The Fintech GTM Playbook: Selling to Banks and Enterprises',
-    tag: 'Fintech', label: 'GTM',
-    excerpt: 'Selling fintech solutions to regulated enterprises and banks is a different game entirely. Here is the playbook we use across our fintech clients.',
-    publishedAt: '2024-10-05', readTime: '12 min read',
+    _id: '4', slug: { current: 'rebrand-checklist' },
+    title: 'The Rebrand Checklist: When to Rebrand, When to Refresh, and When to Leave It Alone',
+    tag: 'Brand Identity', label: 'Strategy',
+    excerpt: 'Not every brand problem needs a full rebrand. A strategic framework for diagnosing what your brand actually needs — and what it would cost to get it wrong.',
+    publishedAt: '2024-10-05', readTime: '9 min read',
   },
 ]
 
@@ -48,15 +48,15 @@ export default async function InsightsPage() {
       {/* Header */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Insights</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Insights</p>
           <h1
-            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6 hero-in hero-in-2"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
-            Revenue<br />intelligence.
+            Brand<br />intelligence.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed">
-            Frameworks, playbooks, and analysis from the Apex Growth team — built from real engagements, not theory.
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
+            Creative frameworks, brand strategy, and campaign insights from the Apex Growth team — built from real engagements, not theory.
           </p>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default async function InsightsPage() {
           {insights[0] && (
             <Link
               href={`/insights/${insights[0].slug?.current || insights[0].slug}`}
-              className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-12 mb-6 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300"
+              className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-12 mb-6 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300 reveal"
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{insights[0].tag}</span>
@@ -88,11 +88,12 @@ export default async function InsightsPage() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {insights.slice(1).map((ins: any) => (
+            {insights.slice(1).map((ins: any, i: number) => (
               <Link
                 key={ins._id}
                 href={`/insights/${ins.slug?.current || ins.slug}`}
-                className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300 reveal"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-center gap-2 mb-5">
                   <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{ins.tag}</span>

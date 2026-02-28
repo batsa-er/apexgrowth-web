@@ -3,46 +3,46 @@ import { getCaseStudies } from '@/sanity/queries'
 
 const fallback = [
   {
-    _id: '1', slug: { current: 'fintech-expansion' }, client: 'PanAfrica Pay',
-    industry: 'Fintech', summary: 'Rebuilt pipeline architecture and demand gen motion across 6 African markets.',
-    metric1_num: '312%', metric1_label: 'Pipeline Growth',
-    metric2_num: '4.1×', metric2_label: 'SQL Velocity',
-    metric3_num: '18mo', metric3_label: 'Payback Period', accent: 'purple',
+    _id: '1', slug: { current: 'panafricapay-brand' }, client: 'PanAfrica Pay',
+    industry: 'Fintech', summary: 'Complete brand overhaul — identity, web, and marketing assets — ahead of a pan-African market expansion.',
+    metric1_num: '3×', metric1_label: 'Brand Recall',
+    metric2_num: '68%', metric2_label: 'Web Conversion Lift',
+    metric3_num: '6wks', metric3_label: 'Launch Timeline', accent: 'purple',
   },
   {
-    _id: '2', slug: { current: 'enterprise-saas' }, client: 'Kepler Systems',
-    industry: 'Enterprise SaaS', summary: 'Deployed ABM motion and full-funnel automation for EMEA enterprise segment.',
-    metric1_num: '89%', metric1_label: 'Win Rate Lift',
-    metric2_num: '$2.4M', metric2_label: 'Incremental ARR',
-    metric3_num: '60d', metric3_label: 'Time to Revenue', accent: 'cyan',
+    _id: '2', slug: { current: 'kepler-systems-web' }, client: 'Kepler Systems',
+    industry: 'Enterprise SaaS', summary: 'Redesigned enterprise website and built a content marketing system targeting EMEA decision-makers.',
+    metric1_num: '4.4×', metric1_label: 'Organic Traffic',
+    metric2_num: '52%', metric2_label: 'Demo Request Rate',
+    metric3_num: '90d', metric3_label: 'Go-Live', accent: 'cyan',
   },
   {
-    _id: '3', slug: { current: 'telecoms-growth' }, client: 'Verto Networks',
-    industry: 'Telecoms', summary: 'Overhauled GTM strategy and revenue operations for B2B telecoms leader.',
-    metric1_num: '2.8×', metric1_label: 'Revenue Growth',
-    metric2_num: '41%', metric2_label: 'CAC Reduction',
-    metric3_num: '14d', metric3_label: 'Sales Cycle Cut', accent: 'gold',
+    _id: '3', slug: { current: 'verto-networks-identity' }, client: 'Verto Networks',
+    industry: 'Telecoms', summary: 'Full rebrand and integrated marketing campaign for a B2B telecoms leader entering three new markets.',
+    metric1_num: '2.2×', metric1_label: 'Brand Equity Score',
+    metric2_num: '41%', metric2_label: 'Campaign Reach',
+    metric3_num: '8wks', metric3_label: 'Rebrand to Launch', accent: 'gold',
   },
   {
-    _id: '4', slug: { current: 'healthtech-scale' }, client: 'Luminary Health',
-    industry: 'Healthtech', summary: 'Scaled enterprise sales motion from seed to Series B across West Africa.',
-    metric1_num: '5.2×', metric1_label: 'Pipeline Expansion',
-    metric2_num: '73%', metric2_label: 'Close Rate Lift',
-    metric3_num: '$1.8M', metric3_label: 'New ARR', accent: 'cyan',
+    _id: '4', slug: { current: 'luminary-health-print' }, client: 'Luminary Health',
+    industry: 'Healthtech', summary: 'Hospital-facing event branding, brochures, and exhibition materials for a Series B health technology company.',
+    metric1_num: '12', metric1_label: 'Events Produced',
+    metric2_num: '900+', metric2_label: 'Assets Delivered',
+    metric3_num: '72hr', metric3_label: 'Avg Turnaround', accent: 'cyan',
   },
   {
-    _id: '5', slug: { current: 'logistics-demand' }, client: 'TradeAxis',
-    industry: 'Logistics', summary: 'Built demand generation system and B2B sales infrastructure from ground zero.',
+    _id: '5', slug: { current: 'tradeaxis-campaign' }, client: 'TradeAxis',
+    industry: 'Logistics', summary: 'Integrated marketing campaign — social, email, and print — to launch a new enterprise freight product.',
     metric1_num: '220%', metric1_label: 'Lead Volume',
-    metric2_num: '3.6×', metric2_label: 'Revenue per Rep',
-    metric3_num: '22d', metric3_label: 'Ramp Time', accent: 'gold',
+    metric2_num: '3.1×', metric2_label: 'Cost-per-Lead Improvement',
+    metric3_num: '6wks', metric3_label: 'Campaign Duration', accent: 'gold',
   },
   {
-    _id: '6', slug: { current: 'investment-banking' }, client: 'NovaBridge Capital',
-    industry: 'Financial Services', summary: 'Repositioned brand and built institutional client acquisition program.',
-    metric1_num: '4×', metric1_label: 'Deal Flow',
-    metric2_num: '58%', metric2_label: 'Pitch Win Rate',
-    metric3_num: '9mo', metric3_label: 'To Profitability', accent: 'purple',
+    _id: '6', slug: { current: 'novabridge-identity' }, client: 'NovaBridge Capital',
+    industry: 'Financial Services', summary: 'Brand identity and investor-facing collateral for an institutional capital firm ahead of a Series A raise.',
+    metric1_num: '1 round', metric1_label: 'Raise Completed',
+    metric2_num: '100%', metric2_label: 'Brand Asset Coverage',
+    metric3_num: '4wks', metric3_label: 'Concept to Delivery', accent: 'purple',
   },
 ]
 
@@ -64,14 +64,14 @@ export default async function WorkPage() {
       {/* Header */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Selected Work</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Selected Work</p>
           <h1
-            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6 hero-in hero-in-2"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             Proof over<br />promises.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
             Every engagement is measured by one thing: revenue outcomes. Here&apos;s what we&apos;ve delivered.
           </p>
         </div>
@@ -80,13 +80,14 @@ export default async function WorkPage() {
       {/* Case Studies Grid */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pb-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {caseStudies.map((cs: any) => {
+          {caseStudies.map((cs: any, i: number) => {
             const acc = accentFor(cs.accent)
             return (
               <Link
                 key={cs._id}
                 href={`/work/${cs.slug?.current || cs.slug}`}
-                className="group block p-8 border border-[rgba(15,23,42,0.12)] bg-white hover:border-[rgba(37,99,235,0.40)] hover:-translate-y-1 transition-all duration-300"
+                className="group block p-8 border border-[rgba(15,23,42,0.12)] bg-white hover:border-[rgba(37,99,235,0.40)] hover:-translate-y-1 transition-all duration-300 reveal"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-center justify-between mb-6">
                   <span
