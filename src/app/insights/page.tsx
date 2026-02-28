@@ -46,42 +46,42 @@ export default async function InsightsPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Insights</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Insights</p>
           <h1
-            className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             Revenue<br />intelligence.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.55)] max-w-xl leading-relaxed">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed">
             Frameworks, playbooks, and analysis from the Apex Growth team — built from real engagements, not theory.
           </p>
         </div>
       </section>
 
       {/* Articles */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pb-28">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pb-28">
         <div className="max-w-[1280px] mx-auto">
           {/* Featured */}
           {insights[0] && (
             <Link
               href={`/insights/${insights[0].slug?.current || insights[0].slug}`}
-              className="group block border border-[rgba(192,132,252,0.12)] bg-[#110828] p-12 mb-6 hover:border-[rgba(192,132,252,0.30)] hover:-translate-y-0.5 transition-all duration-300"
+              className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-12 mb-6 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
-                <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[#C084FC] border border-[rgba(192,132,252,0.30)]">{insights[0].tag}</span>
-                {insights[0].label && <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[rgba(242,238,255,0.35)] border border-[rgba(242,238,255,0.10)]">{insights[0].label}</span>}
+                <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{insights[0].tag}</span>
+                {insights[0].label && <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[rgba(11,15,20,0.35)] border border-[rgba(15,23,42,0.10)]">{insights[0].label}</span>}
               </div>
-              <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-4 group-hover:text-[#E0AAFF] transition-colors" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>
+              <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4 group-hover:text-[#2563EB] transition-colors" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>
                 {insights[0].title}
               </h2>
-              <p className="text-[15px] text-[rgba(242,238,255,0.55)] leading-relaxed max-w-2xl mb-8">{insights[0].excerpt}</p>
+              <p className="text-[15px] text-[rgba(11,15,20,0.55)] leading-relaxed max-w-2xl mb-8">{insights[0].excerpt}</p>
               <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(242,238,255,0.30)]">{formatDate(insights[0].publishedAt)}</span>
-                <span className="text-[rgba(242,238,255,0.15)]">·</span>
-                <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(242,238,255,0.30)]">{insights[0].readTime}</span>
+                <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">{formatDate(insights[0].publishedAt)}</span>
+                <span className="text-[rgba(11,15,20,0.15)]">·</span>
+                <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">{insights[0].readTime}</span>
               </div>
             </Link>
           )}
@@ -92,19 +92,19 @@ export default async function InsightsPage() {
               <Link
                 key={ins._id}
                 href={`/insights/${ins.slug?.current || ins.slug}`}
-                className="group block border border-[rgba(192,132,252,0.12)] bg-[#110828] p-8 hover:border-[rgba(192,132,252,0.30)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-5">
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#C084FC] border border-[rgba(192,132,252,0.30)]">{ins.tag}</span>
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{ins.tag}</span>
                 </div>
-                <h2 className="font-serif text-[20px] font-semibold text-[#F2EEFF] leading-snug mb-3 group-hover:text-[#E0AAFF] transition-colors">
+                <h2 className="font-serif text-[20px] font-semibold text-[#0B0F14] leading-snug mb-3 group-hover:text-[#2563EB] transition-colors">
                   {ins.title}
                 </h2>
-                <p className="text-[13px] text-[rgba(242,238,255,0.50)] leading-relaxed mb-6">{ins.excerpt}</p>
+                <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-6">{ins.excerpt}</p>
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[9px] tracking-[0.1em] text-[rgba(242,238,255,0.28)]">{formatDate(ins.publishedAt)}</span>
-                  <span className="text-[rgba(242,238,255,0.15)]">·</span>
-                  <span className="font-mono text-[9px] tracking-[0.1em] text-[rgba(242,238,255,0.28)]">{ins.readTime}</span>
+                  <span className="font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">{formatDate(ins.publishedAt)}</span>
+                  <span className="text-[rgba(11,15,20,0.15)]">·</span>
+                  <span className="font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">{ins.readTime}</span>
                 </div>
               </Link>
             ))}

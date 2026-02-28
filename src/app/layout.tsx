@@ -4,7 +4,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 export const viewport: Viewport = {
-  themeColor: '#09041A',
+  themeColor: '#F6F7FB',
 }
 
 export const metadata: Metadata = {

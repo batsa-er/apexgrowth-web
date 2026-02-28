@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Brand Palette ── */
-  --color-ink:           #09041A;
-  --color-surface:       #110828;
-  --color-panel:         #170E35;
-  --color-border:        rgba(192,132,252,0.08);
-  --color-border-strong: rgba(192,132,252,0.18);
-  --color-purple:        #C084FC;
-  --color-purple-light:  #E0AAFF;
-  --color-purple-dim:    rgba(192,132,252,0.12);
-  --color-cyan:          #7EFFF5;
-  --color-cyan-dim:      rgba(126,255,245,0.10);
-  --color-white:         #F2EEFF;
-  --color-white-dim:     rgba(242,238,255,0.55);
-  --color-white-faint:   rgba(242,238,255,0.28);
-  --color-pink:          #F9A8D4;
+  /* ── Brand Palette (Light Premium) ── */
+  --color-ink:           #F6F7FB;
+  --color-surface:       #EEF2FF;
+  --color-panel:         #FFFFFF;
+  --color-border:        rgba(15,23,42,0.10);
+  --color-border-strong: rgba(15,23,42,0.18);
+  --color-purple:        #2563EB;
+  --color-purple-light:  #1D4ED8;
+  --color-purple-dim:    rgba(37,99,235,0.12);
+  --color-cyan:          #0891B2;
+  --color-cyan-dim:      rgba(8,145,178,0.10);
+  --color-white:         #0B0F14;
+  --color-white-dim:     rgba(11,15,20,0.55);
+  --color-white-faint:   rgba(11,15,20,0.28);
+  --color-pink:          #7C3AED;
 
   /* ── Typography ── */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -29,8 +29,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #09041A;
-  color: #F2EEFF;
+  background: #F6F7FB;
+  color: #0B0F14;
   font-family: 'DM Sans', system-ui, sans-serif;
   font-weight: 300;
   line-height: 1.7;

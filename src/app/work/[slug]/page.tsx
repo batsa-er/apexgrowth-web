@@ -33,18 +33,18 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
   if (!cs) cs = fallbackStudies[params.slug]
   if (!cs) notFound()
 
-  const accentColor = cs.accent === 'cyan' ? '#7EFFF5' : cs.accent === 'gold' ? '#FFD166' : '#C084FC'
+  const accentColor = cs.accent === 'cyan' ? '#0891B2' : cs.accent === 'gold' ? '#D97706' : '#2563EB'
 
   return (
     <>
       {/* Header */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
         <div className="max-w-[900px] mx-auto">
           <div className="flex items-center gap-3 mb-8">
-            <Link href="/work" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(242,238,255,0.40)] hover:text-[#C084FC] transition-colors">
+            <Link href="/work" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.40)] hover:text-[#2563EB] transition-colors">
               ← Work
             </Link>
-            <span className="text-[rgba(242,238,255,0.20)]">/</span>
+            <span className="text-[rgba(11,15,20,0.20)]">/</span>
             <span
               className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1"
               style={{ color: accentColor, border: `1px solid ${accentColor}` }}
@@ -52,16 +52,16 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
               {cs.industry}
             </span>
           </div>
-          <h1 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6"
+          <h1 className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
             style={{ fontSize: 'clamp(44px,7vw,80px)' }}>{cs.client}</h1>
-          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(242,238,255,0.60)] leading-relaxed max-w-2xl">
+          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(11,15,20,0.60)] leading-relaxed max-w-2xl">
             {cs.summary}
           </p>
         </div>
       </section>
 
       {/* Metrics Bar */}
-      <section className="bg-[#110828] border-y border-[rgba(192,132,252,0.08)] px-[clamp(24px,5vw,80px)] py-14">
+      <section className="bg-[#EEF2FF] border-y border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-14">
         <div className="max-w-[900px] mx-auto grid grid-cols-3 gap-8">
           {[
             [cs.metric1_num, cs.metric1_label],
@@ -70,46 +70,46 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
           ].map(([num, label]) => (
             <div key={label}>
               <p className="font-serif font-bold mb-1" style={{ fontSize: 'clamp(36px,5vw,60px)', color: accentColor, lineHeight: 1 }}>{num}</p>
-              <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(242,238,255,0.40)]">{label}</p>
+              <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.40)]">{label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Body */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] py-24">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-24">
         <div className="max-w-[900px] mx-auto space-y-16">
           {cs.challenge && (
             <div>
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-4" style={{ color: accentColor }}>The Challenge</p>
-              <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.70)] leading-relaxed">{cs.challenge}</p>
+              <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.70)] leading-relaxed">{cs.challenge}</p>
             </div>
           )}
           {cs.solution && (
             <div>
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-4" style={{ color: accentColor }}>Our Approach</p>
-              <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.70)] leading-relaxed">{cs.solution}</p>
+              <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.70)] leading-relaxed">{cs.solution}</p>
             </div>
           )}
           {cs.results && (
             <div>
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase mb-4" style={{ color: accentColor }}>The Results</p>
-              <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.70)] leading-relaxed">{cs.results}</p>
+              <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.70)] leading-relaxed">{cs.results}</p>
             </div>
           )}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-[#110828] border-t border-[rgba(192,132,252,0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
+      <section className="bg-[#EEF2FF] border-t border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
         <div className="max-w-[700px] mx-auto">
-          <h2 className="font-serif font-bold text-[#F2EEFF] mb-4" style={{ fontSize: 'clamp(28px,3vw,48px)' }}>
+          <h2 className="font-serif font-bold text-[#0B0F14] mb-4" style={{ fontSize: 'clamp(28px,3vw,48px)' }}>
             Ready to see similar results?
           </h2>
-          <p className="text-[rgba(242,238,255,0.55)] mb-8">Book a strategy call and we&apos;ll audit your revenue system.</p>
+          <p className="text-[rgba(11,15,20,0.55)] mb-8">Book a strategy call and we&apos;ll audit your revenue system.</p>
           <Link
             href="/contact"
-            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-10 py-4 hover:bg-[#E0AAFF] transition-colors duration-200"
+            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-10 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
           >
             Book Strategy Call
           </Link>

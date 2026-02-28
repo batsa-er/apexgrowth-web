@@ -30,30 +30,30 @@ export default async function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">About</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">About</p>
           <h1
-            className="font-serif font-bold text-[#F2EEFF] leading-tight mb-8"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-8"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             One agency.<br />Every brand<br />touchpoint.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.55)] max-w-2xl leading-relaxed">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-2xl leading-relaxed">
             Apex Growth Partners is a full-service creative agency based in Accra, Ghana. We deliver brand identity, web, marketing, and print production under one roof — with a single creative direction and measurable results.
           </p>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="bg-[#110828] border-y border-[rgba(192,132,252,0.08)] px-[clamp(24px,5vw,80px)] py-24">
+      <section className="bg-[#EEF2FF] border-y border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Our Mission</p>
-            <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6" style={{ fontSize: 'clamp(28px,3.5vw,48px)' }}>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Our Mission</p>
+            <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-6" style={{ fontSize: 'clamp(28px,3.5vw,48px)' }}>
               Brand architecture for Africa&apos;s most ambitious companies.
             </h2>
-            <p className="text-[15px] text-[rgba(242,238,255,0.60)] leading-relaxed">
+            <p className="text-[15px] text-[rgba(11,15,20,0.60)] leading-relaxed">
               We believe Africa&apos;s best businesses deserve the same calibre of creative expertise that top global brands take for granted. That means world-class design, consistent messaging, and brand systems that scale — built for African market realities.
             </p>
           </div>
@@ -64,9 +64,9 @@ export default async function AboutPage() {
               { num: '72hr', label: 'Fast Turnaround' },
               { num: '94%', label: 'Client Retention' },
             ].map(({ num, label }) => (
-              <div key={label} className="border border-[rgba(192,132,252,0.12)] p-6">
-                <p className="font-serif font-bold text-[#C084FC] mb-1" style={{ fontSize: 'clamp(32px,4vw,52px)', lineHeight: 1 }}>{num}</p>
-                <p className="font-mono text-[9px] tracking-[0.16em] uppercase text-[rgba(242,238,255,0.35)]">{label}</p>
+              <div key={label} className="border border-[rgba(37,99,235,0.12)] p-6">
+                <p className="font-serif font-bold text-[#2563EB] mb-1" style={{ fontSize: 'clamp(32px,4vw,52px)', lineHeight: 1 }}>{num}</p>
+                <p className="font-mono text-[9px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
               </div>
             ))}
           </div>
@@ -74,21 +74,21 @@ export default async function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] py-28">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">How We Work</p>
-          <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-16" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">How We Work</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-16" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
             Principles we do not compromise on.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map(({ num, title, body }) => (
-              <div key={num} className="border border-[rgba(192,132,252,0.08)] bg-[#110828] p-8 relative overflow-hidden group">
+              <div key={num} className="border border-[rgba(37,99,235,0.08)] bg-[#EEF2FF] p-8 relative overflow-hidden group">
                 <span className="absolute bottom-3 right-5 font-serif font-bold text-[100px] leading-none text-[rgba(192,132,252,0.04)] select-none pointer-events-none">
                   {num}
                 </span>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C084FC] mb-4">{num}</p>
-                <h3 className="font-serif text-[22px] font-bold text-[#F2EEFF] mb-3">{title}</h3>
-                <p className="text-[14px] text-[rgba(242,238,255,0.55)] leading-relaxed">{body}</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-4">{num}</p>
+                <h3 className="font-serif text-[22px] font-bold text-[#0B0F14] mb-3">{title}</h3>
+                <p className="text-[14px] text-[rgba(11,15,20,0.55)] leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
@@ -96,21 +96,21 @@ export default async function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-[#110828] px-[clamp(24px,5vw,80px)] py-28">
+      <section className="bg-[#EEF2FF] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">The Team</p>
-          <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-16" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">The Team</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-16" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
             Operators. Not consultants.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map(({ name, role, initials, bio }) => (
-              <div key={name} className="border border-[rgba(192,132,252,0.08)] p-8">
-                <div className="w-14 h-14 rounded-full bg-[rgba(192,132,252,0.12)] border border-[rgba(192,132,252,0.25)] flex items-center justify-center mb-6">
-                  <span className="font-mono text-[12px] text-[#C084FC]">{initials}</span>
+              <div key={name} className="border border-[rgba(37,99,235,0.08)] p-8">
+                <div className="w-14 h-14 rounded-full bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.25)] flex items-center justify-center mb-6">
+                  <span className="font-mono text-[12px] text-[#2563EB]">{initials}</span>
                 </div>
-                <h3 className="font-serif text-[18px] font-bold text-[#F2EEFF] mb-1">{name}</h3>
-                <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#C084FC] mb-4">{role}</p>
-                <p className="text-[13px] text-[rgba(242,238,255,0.50)] leading-relaxed">{bio}</p>
+                <h3 className="font-serif text-[18px] font-bold text-[#0B0F14] mb-1">{name}</h3>
+                <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#2563EB] mb-4">{role}</p>
+                <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{bio}</p>
               </div>
             ))}
           </div>
@@ -118,31 +118,31 @@ export default async function AboutPage() {
       </section>
 
       {/* Careers */}
-      <section id="careers" className="bg-[#09041A] px-[clamp(24px,5vw,80px)] py-28">
+      <section id="careers" className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] py-28">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Careers</p>
-          <h2 className="font-serif font-bold text-[#F2EEFF] leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Careers</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
             Build careers that move markets.
           </h2>
-          <p className="text-[15px] text-[rgba(242,238,255,0.55)] max-w-xl mb-16">
+          <p className="text-[15px] text-[rgba(11,15,20,0.55)] max-w-xl mb-16">
             We hire operators, strategists, and builders who are serious about results. No passengers. Every hire makes a material difference to our clients and our culture.
           </p>
 
           <div className="space-y-4">
             {careers.map((job: any) => (
-              <div key={job._id} className="border border-[rgba(192,132,252,0.12)] bg-[#110828] p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div key={job._id} className="border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#C084FC] border border-[rgba(192,132,252,0.30)]">{job.department}</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[rgba(242,238,255,0.35)] border border-[rgba(242,238,255,0.10)]">{job.type}</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(242,238,255,0.25)]">{job.location}</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{job.department}</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[rgba(11,15,20,0.35)] border border-[rgba(15,23,42,0.10)]">{job.type}</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.25)]">{job.location}</span>
                   </div>
-                  <h3 className="font-serif text-[22px] font-bold text-[#F2EEFF] mb-2">{job.title}</h3>
-                  <p className="text-[13px] text-[rgba(242,238,255,0.50)] leading-relaxed">{job.excerpt}</p>
+                  <h3 className="font-serif text-[22px] font-bold text-[#0B0F14] mb-2">{job.title}</h3>
+                  <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{job.excerpt}</p>
                 </div>
                 <a
                   href={job.applyUrl || '/contact'}
-                  className="shrink-0 font-mono text-[10px] tracking-[0.14em] uppercase border border-[rgba(192,132,252,0.35)] text-[rgba(242,238,255,0.70)] px-6 py-3 hover:border-[#C084FC] hover:text-[#F2EEFF] transition-colors duration-200"
+                  className="shrink-0 font-mono text-[10px] tracking-[0.14em] uppercase border border-[rgba(37,99,235,0.35)] text-[rgba(11,15,20,0.70)] px-6 py-3 hover:border-[#2563EB] hover:text-[#0B0F14] transition-colors duration-200"
                 >
                   Apply →
                 </a>

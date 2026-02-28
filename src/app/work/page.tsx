@@ -47,9 +47,9 @@ const fallback = [
 ]
 
 function accentFor(accent: string) {
-  if (accent === 'cyan') return { border: '#7EFFF5', text: '#7EFFF5', bg: 'rgba(126,255,245,0.06)' }
-  if (accent === 'gold') return { border: '#FFD166', text: '#FFD166', bg: 'rgba(255,209,102,0.06)' }
-  return { border: '#C084FC', text: '#C084FC', bg: 'rgba(192,132,252,0.06)' }
+  if (accent === 'cyan') return { border: '#0891B2', text: '#0891B2', bg: 'rgba(8,145,178,0.06)' }
+  if (accent === 'gold') return { border: '#D97706', text: '#D97706', bg: 'rgba(217,119,6,0.06)' }
+  return { border: '#2563EB', text: '#2563EB', bg: 'rgba(37,99,235,0.06)' }
 }
 
 export default async function WorkPage() {
@@ -62,23 +62,23 @@ export default async function WorkPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-6">Selected Work</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">Selected Work</p>
           <h1
-            className="font-serif font-bold text-[#F2EEFF] leading-tight mb-6"
+            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             Proof over<br />promises.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(242,238,255,0.55)] max-w-xl leading-relaxed">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed">
             Every engagement is measured by one thing: revenue outcomes. Here&apos;s what we&apos;ve delivered.
           </p>
         </div>
       </section>
 
       {/* Case Studies Grid */}
-      <section className="bg-[#09041A] px-[clamp(24px,5vw,80px)] pb-28">
+      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pb-28">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map((cs: any) => {
             const acc = accentFor(cs.accent)
@@ -86,7 +86,7 @@ export default async function WorkPage() {
               <Link
                 key={cs._id}
                 href={`/work/${cs.slug?.current || cs.slug}`}
-                className="group block p-8 border border-[rgba(192,132,252,0.12)] bg-[#110828] hover:border-[rgba(192,132,252,0.35)] hover:-translate-y-1 transition-all duration-300"
+                className="group block p-8 border border-[rgba(15,23,42,0.12)] bg-white hover:border-[rgba(37,99,235,0.40)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-6">
                   <span
@@ -95,11 +95,11 @@ export default async function WorkPage() {
                   >
                     {cs.industry}
                   </span>
-                  <span className="font-mono text-[10px] text-[rgba(242,238,255,0.28)] group-hover:translate-x-1 transition-transform duration-200">→</span>
+                  <span className="font-mono text-[10px] text-[rgba(11,15,20,0.28)] group-hover:translate-x-1 transition-transform duration-200">→</span>
                 </div>
-                <h2 className="font-serif text-[24px] font-semibold text-[#F2EEFF] mb-3">{cs.client}</h2>
-                <p className="text-[13px] text-[rgba(242,238,255,0.50)] leading-relaxed mb-8">{cs.summary}</p>
-                <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[rgba(192,132,252,0.08)]">
+                <h2 className="font-serif text-[24px] font-semibold text-[#0B0F14] mb-3">{cs.client}</h2>
+                <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-8">{cs.summary}</p>
+                <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[rgba(37,99,235,0.08)]">
                   {[
                     [cs.metric1_num, cs.metric1_label],
                     [cs.metric2_num, cs.metric2_label],
@@ -107,7 +107,7 @@ export default async function WorkPage() {
                   ].map(([num, label]) => (
                     <div key={label}>
                       <p className="font-serif text-[20px] font-bold mb-0.5" style={{ color: acc.text }}>{num}</p>
-                      <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-[rgba(242,238,255,0.35)]">{label}</p>
+                      <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
                     </div>
                   ))}
                 </div>
@@ -118,15 +118,15 @@ export default async function WorkPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#110828] border-t border-[rgba(192,132,252,0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
+      <section className="bg-[#EEF2FF] border-t border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#C084FC] mb-4">Work With Us</p>
-          <h2 className="font-serif font-bold text-[#F2EEFF] mb-6" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-4">Work With Us</p>
+          <h2 className="font-serif font-bold text-[#0B0F14] mb-6" style={{ fontSize: 'clamp(32px,4vw,56px)' }}>
             Your results could be next.
           </h2>
           <Link
             href="/contact"
-            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#C084FC] text-[#09041A] px-10 py-4 hover:bg-[#E0AAFF] transition-colors duration-200"
+            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-10 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
           >
             Book Strategy Call
           </Link>
