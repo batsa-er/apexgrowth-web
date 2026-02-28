@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Brand Palette ── */
+  --color-ink:           #09041A;
+  --color-surface:       #110828;
+  --color-panel:         #170E35;
+  --color-border:        rgba(192,132,252,0.08);
+  --color-border-strong: rgba(192,132,252,0.18);
+  --color-purple:        #C084FC;
+  --color-purple-light:  #E0AAFF;
+  --color-purple-dim:    rgba(192,132,252,0.12);
+  --color-cyan:          #7EFFF5;
+  --color-cyan-dim:      rgba(126,255,245,0.10);
+  --color-white:         #F2EEFF;
+  --color-white-dim:     rgba(242,238,255,0.55);
+  --color-white-faint:   rgba(242,238,255,0.28);
+  --color-pink:          #F9A8D4;
+
+  /* ── Typography ── */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-mono:  'DM Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #09041A;
+  color: #F2EEFF;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 28s linear infinite; }
+.animate-marquee:hover { animation-play-state: paused; }
