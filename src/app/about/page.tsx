@@ -2,6 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getCareers, getTeamMembers } from '@/sanity/queries'
 import { urlFor } from '@/sanity/client'
+import {
+  UsersIcon, LayersIcon, ClockIcon, ShieldCheckIcon,
+  TargetIcon, GlobeIcon, TreeIcon,
+  BriefcaseIcon, MapPinIcon,
+} from '@/components/Icons'
 
 const fallbackTeam = [
   {
@@ -91,12 +96,13 @@ export default async function AboutPage() {
           </div>
           <div className="grid grid-cols-2 gap-6">
             {[
-              { num: '200+', label: 'Brands Built' },
-              { num: '1,500+', label: 'Assets Produced' },
-              { num: '72hr', label: 'Fast Turnaround' },
-              { num: '94%', label: 'Client Retention' },
-            ].map(({ num, label }, i) => (
+              { Icon: UsersIcon,       num: '200+',   label: 'Brands Built' },
+              { Icon: LayersIcon,      num: '1,500+', label: 'Assets Produced' },
+              { Icon: ClockIcon,       num: '72hr',   label: 'Fast Turnaround' },
+              { Icon: ShieldCheckIcon, num: '94%',    label: 'Client Retention' },
+            ].map(({ Icon, num, label }, i) => (
               <div key={label} className="border border-[rgba(37,99,235,0.12)] p-6 reveal-scale" style={{ transitionDelay: `${i * 80}ms` }}>
+                <Icon className="w-5 h-5 text-[rgba(37,99,235,0.45)] mb-3" />
                 <p className="font-serif font-bold text-[#2563EB] mb-1" style={{ fontSize: 'clamp(32px,4vw,52px)', lineHeight: 1 }}>{num}</p>
                 <p className="font-mono text-[9px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
               </div>
@@ -113,16 +119,24 @@ export default async function AboutPage() {
             Principles we do not compromise on.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map(({ num, title, body }, i) => (
-              <div key={num} className="border border-[rgba(37,99,235,0.08)] bg-[#EEF2FF] p-8 relative overflow-hidden group reveal" style={{ transitionDelay: `${i * 80}ms` }}>
-                <span className="absolute bottom-3 right-5 font-serif font-bold text-[100px] leading-none text-[rgba(37,99,235,0.04)] select-none pointer-events-none">
-                  {num}
-                </span>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-4">{num}</p>
-                <h3 className="font-serif text-[22px] font-bold text-[#0B0F14] mb-3">{title}</h3>
-                <p className="text-[14px] text-[rgba(11,15,20,0.55)] leading-relaxed">{body}</p>
-              </div>
-            ))}
+            {values.map(({ num, title, body }, i) => {
+              const Icon = num === '01' ? TargetIcon : num === '02' ? GlobeIcon : num === '03' ? LayersIcon : TreeIcon
+              return (
+                <div key={num} className="border border-[rgba(37,99,235,0.08)] bg-[#EEF2FF] p-8 relative overflow-hidden group reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                  <span className="absolute bottom-3 right-5 font-serif font-bold text-[100px] leading-none text-[rgba(37,99,235,0.04)] select-none pointer-events-none">
+                    {num}
+                  </span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 border border-[rgba(37,99,235,0.20)] flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 text-[#2563EB]" />
+                    </div>
+                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB]">{num}</p>
+                  </div>
+                  <h3 className="font-serif text-[22px] font-bold text-[#0B0F14] mb-3">{title}</h3>
+                  <p className="text-[14px] text-[rgba(11,15,20,0.55)] leading-relaxed">{body}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -180,9 +194,15 @@ export default async function AboutPage() {
               <div key={job._id} className="border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 reveal" style={{ transitionDelay: `${i * 80}ms` }}>
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{job.department}</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[rgba(11,15,20,0.35)] border border-[rgba(15,23,42,0.10)]">{job.type}</span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.25)]">{job.location}</span>
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">
+                      <BriefcaseIcon className="w-3 h-3" />{job.department}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[rgba(11,15,20,0.35)] border border-[rgba(15,23,42,0.10)]">
+                      <ClockIcon className="w-3 h-3" />{job.type}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.25)]">
+                      <MapPinIcon className="w-3 h-3" />{job.location}
+                    </span>
                   </div>
                   <h3 className="font-serif text-[22px] font-bold text-[#0B0F14] mb-2">{job.title}</h3>
                   <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed">{job.excerpt}</p>

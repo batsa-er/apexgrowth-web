@@ -1,5 +1,14 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getServices } from '@/sanity/queries'
+import { BrushIcon, MonitorIcon, MegaphoneIcon, PrinterIcon, CheckIcon } from '@/components/Icons'
+
+function getServiceIcon(num: string) {
+  if (num === '01') return BrushIcon
+  if (num === '02') return MonitorIcon
+  if (num === '03') return MegaphoneIcon
+  return PrinterIcon
+}
 
 const fallback = [
   {
@@ -61,10 +70,24 @@ export default async function ServicesPage() {
         </div>
       </section>
 
+      {/* Editorial image */}
+      <div className="relative w-full aspect-[21/9] overflow-hidden hero-in hero-in-4">
+        <Image
+          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&h=700&q=85&auto=format&fit=crop"
+          alt="Apex Growth creative studio"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-[rgba(37,99,235,0.07)]" />
+      </div>
+
       {/* Services */}
       <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pb-28">
         <div className="max-w-[1280px] mx-auto space-y-6">
-          {services.map((s: any, i: number) => (
+          {services.map((s: any, i: number) => {
+            const Icon = getServiceIcon(s.number || `0${i + 1}`)
+            return (
             <div
               key={s._id}
               className="relative border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] p-12 overflow-hidden group hover:border-[rgba(37,99,235,0.30)] transition-all duration-300 reveal"
@@ -77,7 +100,10 @@ export default async function ServicesPage() {
 
               <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-6">{s.number || `0${i + 1}`}</p>
+                  <div className="w-11 h-11 border border-[rgba(37,99,235,0.20)] flex items-center justify-center mb-6">
+                    <Icon className="w-6 h-6 text-[#2563EB]" />
+                  </div>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-4">{s.number || `0${i + 1}`}</p>
                   <h2 className="font-serif text-[clamp(28px,3.5vw,48px)] font-bold text-[#0B0F14] mb-2">{s.title}</h2>
                   <p className="font-mono text-[12px] tracking-[0.08em] italic text-[rgba(11,15,20,0.40)] mb-6">{s.tagline}</p>
                   <p className="text-[15px] text-[rgba(11,15,20,0.60)] leading-relaxed mb-8">{s.description}</p>
@@ -97,7 +123,7 @@ export default async function ServicesPage() {
                   <ul className="space-y-3">
                     {(s.outcomes || []).map((o: string) => (
                       <li key={o} className="flex items-start gap-3">
-                        <span className="text-[#2563EB] shrink-0 mt-0.5 text-[10px]">▸</span>
+                        <CheckIcon className="text-[#2563EB] shrink-0 mt-0.5 w-3.5 h-3.5" />
                         <span className="font-mono text-[12px] tracking-[0.06em] text-[rgba(11,15,20,0.55)]">{o}</span>
                       </li>
                     ))}
@@ -105,7 +131,8 @@ export default async function ServicesPage() {
                 </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </section>
 

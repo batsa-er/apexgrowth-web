@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LinkedInIcon, XIcon } from '@/components/Icons'
 
 export default function Footer() {
   return (
@@ -44,13 +45,15 @@ export default function Footer() {
           <p className="font-mono text-[11px] tracking-[0.08em] text-[rgba(11,15,20,0.28)]">
             © {new Date().getFullYear()} Apex Growth Partners. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            {[['LinkedIn', 'https://linkedin.com/company/apexgrowthpartners'], ['X / Twitter', 'https://x.com/apexgrowth_af']].map(([l, h]) => (
-              <a key={h} href={h} target="_blank" rel="noopener noreferrer"
-                className="font-mono text-[10px] tracking-[0.12em] uppercase text-[rgba(11,15,20,0.28)] hover:text-[#2563EB] transition-colors duration-200">
-                {l}
-              </a>
-            ))}
+          <div className="flex gap-3">
+            <a href="https://linkedin.com/company/apexgrowthpartners" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              className="w-8 h-8 border border-[rgba(15,23,42,0.10)] flex items-center justify-center text-[rgba(11,15,20,0.35)] hover:text-[#2563EB] hover:border-[rgba(37,99,235,0.30)] transition-colors duration-200">
+              <LinkedInIcon className="w-4 h-4" />
+            </a>
+            <a href="https://x.com/apexgrowth_af" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
+              className="w-8 h-8 border border-[rgba(15,23,42,0.10)] flex items-center justify-center text-[rgba(11,15,20,0.35)] hover:text-[#2563EB] hover:border-[rgba(37,99,235,0.30)] transition-colors duration-200">
+              <XIcon className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>

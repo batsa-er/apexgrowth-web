@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { EnvelopeIcon, MapPinIcon, ClockIcon } from '@/components/Icons'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '', service: '' })
@@ -33,13 +34,18 @@ export default function ContactPage() {
 
             <div className="space-y-6">
               {[
-                { label: 'Email', value: 'hello@apexgrowth.africa' },
-                { label: 'Location', value: 'Accra, Ghana · Remote-first' },
-                { label: 'Response time', value: 'Within 24 hours' },
-              ].map(({ label, value }) => (
-                <div key={label}>
-                  <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.28)] mb-1">{label}</p>
-                  <p className="font-mono text-[13px] tracking-[0.06em] text-[rgba(11,15,20,0.70)]">{value}</p>
+                { Icon: EnvelopeIcon, label: 'Email', value: 'hello@apexgrowth.africa' },
+                { Icon: MapPinIcon, label: 'Location', value: 'Accra, Ghana · Remote-first' },
+                { Icon: ClockIcon, label: 'Response time', value: 'Within 24 hours' },
+              ].map(({ Icon, label, value }) => (
+                <div key={label} className="flex items-start gap-4">
+                  <div className="w-8 h-8 border border-[rgba(37,99,235,0.15)] flex items-center justify-center mt-1 shrink-0">
+                    <Icon className="w-4 h-4 text-[#2563EB]" />
+                  </div>
+                  <div>
+                    <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.28)] mb-1">{label}</p>
+                    <p className="font-mono text-[13px] tracking-[0.06em] text-[rgba(11,15,20,0.70)]">{value}</p>
+                  </div>
                 </div>
               ))}
             </div>

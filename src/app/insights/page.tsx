@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getInsights } from '@/sanity/queries'
 import { urlFor } from '@/sanity/client'
+import { CalendarIcon, ClockIcon } from '@/components/Icons'
 
 const fallback = [
   {
@@ -99,9 +100,13 @@ export default async function InsightsPage() {
                 </h2>
                 <p className="text-[15px] text-[rgba(11,15,20,0.55)] leading-relaxed max-w-2xl mb-8">{insights[0].excerpt}</p>
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">{formatDate(insights[0].publishedAt)}</span>
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">
+                    <CalendarIcon className="w-3.5 h-3.5" />{formatDate(insights[0].publishedAt)}
+                  </span>
                   <span className="text-[rgba(11,15,20,0.15)]">·</span>
-                  <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">{insights[0].readTime}</span>
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">
+                    <ClockIcon className="w-3.5 h-3.5" />{insights[0].readTime}
+                  </span>
                 </div>
               </div>
             </Link>
@@ -136,9 +141,13 @@ export default async function InsightsPage() {
                   </h2>
                   <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-6">{ins.excerpt}</p>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">{formatDate(ins.publishedAt)}</span>
+                    <span className="inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">
+                      <CalendarIcon className="w-3 h-3" />{formatDate(ins.publishedAt)}
+                    </span>
                     <span className="text-[rgba(11,15,20,0.15)]">·</span>
-                    <span className="font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">{ins.readTime}</span>
+                    <span className="inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">
+                      <ClockIcon className="w-3 h-3" />{ins.readTime}
+                    </span>
                   </div>
                 </div>
               </Link>

@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { getCaseStudies, getTestimonials } from '@/sanity/queries'
 import CaseCard from '@/components/CaseCard'
 import { urlFor } from '@/sanity/client'
+import {
+  TrendingUpIcon, UsersIcon, CurrencyIcon, ShieldCheckIcon,
+  BrushIcon, MonitorIcon, MegaphoneIcon, PrinterIcon, CheckIcon,
+} from '@/components/Icons'
 
 // Fallback data for when Sanity is not connected
 const fallbackCaseStudies = [
@@ -128,12 +132,13 @@ export default async function HomePage() {
       <section className="bg-[#EEF2FF] border-t-[3px] border-t-[#2563EB] border-b border-b-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-16">
         <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
           {[
-            { num: '8.4×', label: 'Average ROI — enterprise clients, Year 1' },
-            { num: '62%', label: 'Avg increase in qualified pipeline within 90 days' },
-            { num: '$47M', label: 'In verified client revenue attributed to our systems' },
-            { num: '94%', label: 'Client retention rate' },
-          ].map(({ num, label }, i) => (
+            { Icon: TrendingUpIcon, num: '8.4×', label: 'Average ROI — enterprise clients, Year 1' },
+            { Icon: UsersIcon,      num: '62%',  label: 'Avg increase in qualified pipeline within 90 days' },
+            { Icon: CurrencyIcon,   num: '$47M', label: 'In verified client revenue attributed to our systems' },
+            { Icon: ShieldCheckIcon,num: '94%',  label: 'Client retention rate' },
+          ].map(({ Icon, num, label }, i) => (
             <div key={label} className="reveal-scale" style={{ transitionDelay: `${i * 90}ms` }}>
+              <Icon className="w-5 h-5 text-[#2563EB] mb-3 opacity-60" />
               <p className="font-serif font-bold text-[#0B0F14] mb-1"
                 style={{ fontSize: 'clamp(36px,5vw,64px)', lineHeight: 1 }}>{num}</p>
               <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.40)]">{label}</p>
@@ -194,34 +199,34 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                num: '01', slug: 'brand-identity', title: 'Brand & Identity',
+                Icon: BrushIcon, num: '01', slug: 'brand-identity', title: 'Brand & Identity',
                 tagline: 'Brand systems that scale.',
                 description: 'Logo and identity design, brand guidelines, corporate profiles, packaging design, and rebrands—built for clarity and consistency.',
                 outcomes: ['Logo & identity suite', 'Brand guidelines & templates', 'Packaging & collateral design'],
                 pricing: 'Projects · Retainers',
               },
               {
-                num: '02', slug: 'web-digital', title: 'Web & Digital',
+                Icon: MonitorIcon, num: '02', slug: 'web-digital', title: 'Web & Digital',
                 tagline: 'Websites built to convert.',
                 description: 'UX-led websites, landing pages, and e-commerce that look premium and guide visitors to take action—fast, mobile-first, and measurable.',
                 outcomes: ['UX/UI + web development', 'Landing pages & CRO', 'Analytics & lead capture'],
                 pricing: 'Build · Maintain',
               },
               {
-                num: '03', slug: 'marketing-campaigns', title: 'Marketing & Campaigns',
+                Icon: MegaphoneIcon, num: '03', slug: 'marketing-campaigns', title: 'Marketing & Campaigns',
                 tagline: 'Creative that drives demand.',
                 description: 'Content, social media, paid ads, email, and campaign execution—designed with a clear message and tracked outcomes.',
                 outcomes: ['Social content & management', 'Paid ads (Meta/Google/LinkedIn)', 'Email & campaign reporting'],
                 pricing: 'Monthly Retainers',
               },
               {
-                num: '04', slug: 'print-production', title: 'Print & Production',
+                Icon: PrinterIcon, num: '04', slug: 'print-production', title: 'Print & Production',
                 tagline: 'From screen to physical.',
                 description: 'Corporate printing, event branding, signage, and packaging production—managed end-to-end so quality stays consistent.',
                 outcomes: ['Corporate stationery & brochures', 'Event branding & large format', 'Packaging production support'],
                 pricing: 'Production · Fulfilment',
               },
-            ].map(({ num, slug, title, tagline, description, outcomes, pricing }, i) => (
+            ].map(({ Icon, num, slug, title, tagline, description, outcomes, pricing }, i) => (
               <Link
                 key={num}
                 href={`/services/${slug}`}
@@ -234,7 +239,10 @@ export default async function HomePage() {
                 </span>
 
                 <div className="relative flex-1">
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-6">{num}</p>
+                  <div className="w-9 h-9 border border-[rgba(37,99,235,0.15)] flex items-center justify-center mb-5">
+                    <Icon className="w-5 h-5 text-[#2563EB]" />
+                  </div>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2563EB] mb-4">{num}</p>
                   <h3 className="font-serif text-[24px] font-bold text-[#0B0F14] mb-2">{title}</h3>
                   <p className="font-mono text-[11px] tracking-[0.08em] text-[rgba(11,15,20,0.40)] italic mb-5">{tagline}</p>
                   <p className="text-[13px] text-[rgba(11,15,20,0.55)] leading-relaxed mb-8">{description}</p>
@@ -242,7 +250,7 @@ export default async function HomePage() {
                   <ul className="space-y-2 mb-8">
                     {outcomes.map(o => (
                       <li key={o} className="flex items-start gap-2">
-                        <span className="text-[#2563EB] mt-0.5 shrink-0 text-[10px]">▸</span>
+                        <CheckIcon className="text-[#2563EB] mt-0.5 shrink-0 w-3 h-3" />
                         <span className="font-mono text-[11px] tracking-[0.06em] text-[rgba(11,15,20,0.50)]">{o}</span>
                       </li>
                     ))}
