@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { getServices } from '@/sanity/queries'
 import { BrushIcon, MonitorIcon, MegaphoneIcon, PrinterIcon, CheckIcon } from '@/components/Icons'
+import PageHero from '@/components/PageHero'
 
 function getServiceIcon(num: string) {
   if (num === '01') return BrushIcon
@@ -54,33 +54,12 @@ export default async function ServicesPage() {
 
   return (
     <>
-      {/* Header */}
-      <section className="dot-grid bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
-        <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-6 hero-in hero-in-1">Full-Service, Structured</p>
-          <h1
-            className="font-serif font-bold text-[var(--color-text)] leading-tight mb-6 hero-in hero-in-2"
-            style={{ fontSize: 'clamp(44px,7vw,88px)' }}
-          >
-            Everything your brand needs.<br />One integrated agency.
-          </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(var(--ch-text),0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
-            We deliver brand, digital, marketing, and production with a single creative direction—so every touchpoint looks, feels, and performs like one brand.
-          </p>
-        </div>
-      </section>
-
-      {/* Editorial image */}
-      <div className="relative w-full aspect-[21/9] overflow-hidden hero-in hero-in-4">
-        <Image
-          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&h=700&q=85&auto=format&fit=crop"
-          alt="Apex Growth creative studio"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-[rgba(var(--ch-accent),0.07)]" />
-      </div>
+      <PageHero
+        eyebrow="Full-Service, Structured"
+        title={<>Everything your brand needs.<br />One integrated agency.</>}
+        description="We deliver brand, digital, marketing, and production with a single creative direction—so every touchpoint looks, feels, and performs like one brand."
+        image={{ src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&h=700&q=85&auto=format&fit=crop', alt: 'Apex Growth creative studio' }}
+      />
 
       {/* Services */}
       <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pb-28">

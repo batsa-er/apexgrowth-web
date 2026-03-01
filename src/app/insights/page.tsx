@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getInsights } from '@/sanity/queries'
 import { urlFor } from '@/sanity/client'
 import { CalendarIcon, ClockIcon } from '@/components/Icons'
+import PageHero from '@/components/PageHero'
 
 const fallback = [
   {
@@ -53,20 +54,12 @@ export default async function InsightsPage() {
   return (
     <>
       {/* Header */}
-      <section className="dot-grid bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
-        <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-6 hero-in hero-in-1">Insights</p>
-          <h1
-            className="font-serif font-bold text-[var(--color-text)] leading-tight mb-6 hero-in hero-in-2"
-            style={{ fontSize: 'clamp(44px,7vw,88px)' }}
-          >
-            Brand<br />intelligence.
-          </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(var(--ch-text),0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
-            Creative frameworks, brand strategy, and campaign insights from the Apex Growth team — built from real engagements, not theory.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Insights"
+        title={<>Brand<br />intelligence.</>}
+        description="Creative frameworks, brand strategy, and campaign insights from the Apex Growth team — built from real engagements, not theory."
+        image={{ src: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600&h=700&q=85&auto=format&fit=crop', alt: 'Writing and strategy at work' }}
+      />
 
       {/* Articles */}
       <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pb-28">

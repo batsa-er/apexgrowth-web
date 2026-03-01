@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getCareers, getTeamMembers } from '@/sanity/queries'
+import PageHero from '@/components/PageHero'
 import { urlFor } from '@/sanity/client'
 import {
   UsersIcon, LayersIcon, ClockIcon, ShieldCheckIcon,
@@ -54,32 +55,12 @@ export default async function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="dot-grid bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
-        <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-6 hero-in hero-in-1">About</p>
-          <h1
-            className="font-serif font-bold text-[var(--color-text)] leading-tight mb-8 hero-in hero-in-2"
-            style={{ fontSize: 'clamp(44px,7vw,88px)' }}
-          >
-            One agency.<br />Every brand<br />touchpoint.
-          </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(var(--ch-text),0.55)] max-w-2xl leading-relaxed hero-in hero-in-3">
-            Apex Growth Partners is a full-service creative agency based in Accra, Ghana. We deliver brand identity, web, marketing, and print production under one roof — with a single creative direction and measurable results.
-          </p>
-        </div>
-      </section>
-
-      {/* Editorial photo */}
-      <div className="relative w-full aspect-[21/9] overflow-hidden hero-in hero-in-4">
-        <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=700&q=85&auto=format&fit=crop"
-          alt="Apex Growth creative studio"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-[rgba(var(--ch-accent),0.08)]" />
-      </div>
+      <PageHero
+        eyebrow="About"
+        title={<>One agency.<br />Every brand<br />touchpoint.</>}
+        description="Apex Growth Partners is a full-service creative agency based in Accra, Ghana. We deliver brand identity, web, marketing, and print production under one roof — with a single creative direction and measurable results."
+        image={{ src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=700&q=85&auto=format&fit=crop', alt: 'Apex Growth creative studio' }}
+      />
 
       {/* Mission */}
       <section className="bg-[var(--color-surface)] border-y border-[rgba(var(--ch-accent),0.08)] px-[clamp(24px,5vw,80px)] py-24">
