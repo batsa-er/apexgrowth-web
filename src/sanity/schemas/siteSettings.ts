@@ -38,5 +38,7 @@ export default defineType({
     }),
     defineField({ name: 'linkedinUrl', title: 'LinkedIn URL', type: 'url' }),
     defineField({ name: 'twitterUrl', title: 'X / Twitter URL', type: 'url' }),
+    defineField({ name: 'facebookUrl', title: 'Facebook URL', type: 'url' }),
+    defineField({ name: 'instagramUrl', title: 'Instagram URL', type: 'url' }),
   ],
 })

@@ -85,7 +85,7 @@ export async function getTeamMembers() {
 // ── Site Settings ─────────────────────────────────────
 export async function getSiteSettings() {
   return client.fetch(`*[_type == "siteSettings" && _id == "siteSettings"][0] {
-    email, address, responseTime, linkedinUrl, twitterUrl
+    email, address, responseTime, linkedinUrl, twitterUrl, facebookUrl, instagramUrl
   }`)
 }
 

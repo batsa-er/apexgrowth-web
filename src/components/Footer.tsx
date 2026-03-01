@@ -1,15 +1,17 @@
 import Link from 'next/link'
-import { LinkedInIcon, XIcon } from '@/components/Icons'
+import { LinkedInIcon, XIcon, FacebookIcon, InstagramIcon } from '@/components/Icons'
 import { getSiteSettings } from '@/sanity/queries'
 
 export default async function Footer() {
   let settings = null
   try { settings = await getSiteSettings() } catch {}
 
-  const email       = settings?.email       || 'hello@apexgrowth.africa'
-  const address     = settings?.address     || 'Accra, Ghana'
-  const linkedinUrl = settings?.linkedinUrl || 'https://linkedin.com/company/apexgrowthpartners'
-  const twitterUrl  = settings?.twitterUrl  || 'https://x.com/apexgrowth_af'
+  const email        = settings?.email        || 'hello@apexgrowth.africa'
+  const address      = settings?.address      || 'Accra, Ghana'
+  const linkedinUrl  = settings?.linkedinUrl  || 'https://linkedin.com/company/apexgrowthpartners'
+  const twitterUrl   = settings?.twitterUrl   || 'https://x.com/apexgrowth_af'
+  const facebookUrl  = settings?.facebookUrl  || null
+  const instagramUrl = settings?.instagramUrl || null
 
   return (
     <footer className="bg-[var(--color-surface)] border-t border-[rgba(var(--ch-border),0.10)] px-[clamp(24px,5vw,80px)] py-20">
@@ -63,6 +65,18 @@ export default async function Footer() {
               className="w-8 h-8 border border-[rgba(var(--ch-border),0.10)] flex items-center justify-center text-[rgba(var(--ch-text),0.35)] hover:text-[var(--color-accent)] hover:border-[rgba(var(--ch-accent),0.30)] transition-colors duration-200">
               <XIcon className="w-4 h-4" />
             </a>
+            {facebookUrl && (
+              <a href={facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                className="w-8 h-8 border border-[rgba(var(--ch-border),0.10)] flex items-center justify-center text-[rgba(var(--ch-text),0.35)] hover:text-[var(--color-accent)] hover:border-[rgba(var(--ch-accent),0.30)] transition-colors duration-200">
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+            )}
+            {instagramUrl && (
+              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                className="w-8 h-8 border border-[rgba(var(--ch-border),0.10)] flex items-center justify-center text-[rgba(var(--ch-text),0.35)] hover:text-[var(--color-accent)] hover:border-[rgba(var(--ch-accent),0.30)] transition-colors duration-200">
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+            )}
           </div>
         </div>
       </div>
