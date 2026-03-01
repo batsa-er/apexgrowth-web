@@ -5,6 +5,27 @@ export default defineType({
   title: 'Site Settings',
   type: 'document',
   fields: [
+    defineField({
+      name: 'heroSlides',
+      title: 'Hero Slides',
+      type: 'array',
+      description: 'Images that cycle in the homepage hero (4 recommended). Falls back to defaults if empty.',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'image', title: 'Image', type: 'image', options: { hotspot: true } }),
+            defineField({ name: 'alt', title: 'Alt text', type: 'string' }),
+          ],
+          preview: {
+            select: { title: 'alt', media: 'image' },
+            prepare({ title, media }: { title?: string; media?: unknown }) {
+              return { title: title || 'Slide', media }
+            },
+          },
+        },
+      ],
+    }),
     defineField({ name: 'email', title: 'Email', type: 'string' }),
     defineField({
       name: 'address', title: 'Address', type: 'string',

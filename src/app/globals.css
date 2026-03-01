@@ -28,6 +28,7 @@
   --color-text:         #0B0F14;
   --color-accent:       #2563EB;
   --color-accent-hover: #1D4ED8;
+  --ch-bg:     246,247,251;
   --ch-text:   11,15,20;
   --ch-border: 15,23,42;
   --ch-accent: 37,99,235;
@@ -41,6 +42,7 @@
     --color-text:         #F1F5F9;
     --color-accent:       #3B82F6;
     --color-accent-hover: #2563EB;
+    --ch-bg:     12,16,24;
     --ch-text:   241,245,249;
     --ch-border: 241,245,249;
     --ch-accent: 59,130,246;
@@ -111,6 +113,12 @@ body::before {
 .dot-grid {
   background-image: radial-gradient(circle, rgba(37,99,235,0.08) 1px, transparent 1px);
   background-size: 28px 28px;
+}
+
+/* ── Ken Burns ── */
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.08) translate(-1%, -1%); }
 }
 
 /* ── Testimonial fade ── */

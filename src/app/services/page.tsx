@@ -94,7 +94,7 @@ export default async function ServicesPage() {
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Watermark */}
-              <span className="absolute bottom-6 right-10 font-serif font-bold text-[160px] leading-none text-[rgba(37,99,235,0.04)] select-none pointer-events-none group-hover:text-[rgba(37,99,235,0.07)] transition-colors duration-300">
+              <span className="absolute bottom-6 right-10 font-serif font-bold text-[160px] leading-none text-[rgba(var(--ch-accent),0.04)] select-none pointer-events-none group-hover:text-[rgba(var(--ch-accent),0.07)] transition-colors duration-300">
                 {s.number || `0${i + 1}`}
               </span>
 

@@ -89,6 +89,14 @@ export async function getSiteSettings() {
   }`)
 }
 
+// ── Hero Slides ────────────────────────────────────────
+export async function getHeroSlides(): Promise<Array<{ image: unknown; alt: string }>> {
+  const data = await client.fetch(`*[_type == "siteSettings" && _id == "siteSettings"][0] {
+    "slides": heroSlides[]{ alt, image }
+  }`)
+  return data?.slides ?? []
+}
+
 // ── Careers ───────────────────────────────────────────
 export async function getCareers(): Promise<Career[]> {
   const data = await client.fetch(`*[_type == "career" && published == true] | order(_createdAt desc) {

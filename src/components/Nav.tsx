@@ -34,7 +34,7 @@ export default function Nav() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[clamp(24px,5vw,80px)] h-[72px] transition-all duration-400 ${
-        scrolled ? 'bg-[rgba(246,247,251,0.96)] border-b border-[rgba(var(--ch-border),0.10)] backdrop-blur-xl shadow-sm' : ''
+        scrolled ? 'bg-[rgba(var(--ch-bg),0.96)] border-b border-[rgba(var(--ch-border),0.10)] backdrop-blur-xl shadow-sm' : ''
       }`}>
         <Link href="/" className="font-serif text-[22px] font-bold tracking-wide text-[var(--color-text)]">
           Apex<span className="text-[var(--color-accent)]">.</span>Growth
@@ -68,15 +68,15 @@ export default function Nav() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-[1.5px] bg-[#0B0F14] transition-all duration-300 ${open ? 'translate-y-[6.5px] rotate-45' : ''}`} />
-          <span className={`block w-6 h-[1.5px] bg-[#0B0F14] transition-all duration-300 ${open ? 'opacity-0 scale-x-0' : ''}`} />
-          <span className={`block w-6 h-[1.5px] bg-[#0B0F14] transition-all duration-300 ${open ? '-translate-y-[6.5px] -rotate-45' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-[var(--color-text)] transition-all duration-300 ${open ? 'translate-y-[6.5px] rotate-45' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-[var(--color-text)] transition-all duration-300 ${open ? 'opacity-0 scale-x-0' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-[var(--color-text)] transition-all duration-300 ${open ? '-translate-y-[6.5px] -rotate-45' : ''}`} />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {open && (
-        <div className="fixed inset-0 bg-[rgba(246,247,251,0.98)] backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8">
+        <div className="fixed inset-0 bg-[rgba(var(--ch-bg),0.98)] backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8">
           {links.map(l => (
             <Link
               key={l.href}

@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getCaseStudies, getTestimonials } from '@/sanity/queries'
+import { getCaseStudies, getTestimonials, getHeroSlides } from '@/sanity/queries'
 import CaseCard from '@/components/CaseCard'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
+import HeroImageSlider from '@/components/HeroImageSlider'
 import { urlFor } from '@/sanity/client'
 import {
   TrendingUpIcon, UsersIcon, CurrencyIcon, ShieldCheckIcon,
@@ -61,11 +62,20 @@ const fallbackTestimonials = [
 export default async function HomePage() {
   let caseStudies = fallbackCaseStudies as any[]
   let testimonials = fallbackTestimonials as any[]
+  let heroSlides: { src: string; alt: string }[] | undefined
 
   try {
-    const [cs, ts] = await Promise.all([getCaseStudies(), getTestimonials()])
+    const [cs, ts, rawSlides] = await Promise.all([getCaseStudies(), getTestimonials(), getHeroSlides()])
     if (cs?.length) caseStudies = cs.slice(0, 3)
     if (ts?.length) testimonials = ts
+    if (rawSlides?.length) {
+      heroSlides = rawSlides
+        .filter((s) => s.image)
+        .map((s) => ({
+          src: urlFor(s.image).width(900).height(1100).fit('crop').url(),
+          alt: s.alt || '',
+        }))
+    }
   } catch {
     // use fallback data
   }
@@ -114,17 +124,7 @@ export default async function HomePage() {
 
           {/* Hero image */}
           <div className="hidden lg:block relative hero-in hero-in-5">
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&h=1100&q=85&auto=format&fit=crop"
-                alt="Creative team at work"
-                fill
-                className="object-cover"
-                priority
-              />
-              {/* Blue tint overlay to match brand */}
-              <div className="absolute inset-0 bg-[rgba(var(--ch-accent),0.06)]" />
-            </div>
+            <HeroImageSlider slides={heroSlides} />
             {/* Decorative border offset */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-[rgba(var(--ch-accent),0.20)] pointer-events-none" />
           </div>
