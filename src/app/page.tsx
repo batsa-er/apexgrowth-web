@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudies, getTestimonials } from '@/sanity/queries'
 import CaseCard from '@/components/CaseCard'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
 import { urlFor } from '@/sanity/client'
 import {
   TrendingUpIcon, UsersIcon, CurrencyIcon, ShieldCheckIcon,
@@ -36,21 +37,35 @@ const fallbackCaseStudies = [
   },
 ]
 
-const fallbackTestimonial = {
-  quote: 'Apex Growth did not just give us a strategy deck — they embedded with the team, rebuilt our revenue engine from scratch, and the numbers speak for themselves.',
-  name: 'Amara Diallo',
-  role: 'CEO, PanAfrica Pay',
-  initials: 'AD',
-}
+const fallbackTestimonials = [
+  {
+    quote: 'Apex Growth did not just give us a strategy deck — they embedded with the team, rebuilt our revenue engine from scratch, and the numbers speak for themselves.',
+    name: 'Amara Diallo',
+    role: 'CEO, PanAfrica Pay',
+    initials: 'AD',
+  },
+  {
+    quote: 'The rebrand transformed how our clients perceive us. Within a quarter we were closing deals we previously could not get past the door.',
+    name: 'Kwame Asante',
+    role: 'MD, Volta Capital',
+    initials: 'KA',
+  },
+  {
+    quote: 'From brand identity to the website to the campaign — one team, one standard. The consistency alone was worth it.',
+    name: 'Nadia Osei',
+    role: 'Head of Marketing, AfriCare Group',
+    initials: 'NO',
+  },
+]
 
 export default async function HomePage() {
   let caseStudies = fallbackCaseStudies as any[]
-  let testimonial = fallbackTestimonial as any
+  let testimonials = fallbackTestimonials as any[]
 
   try {
-    const [cs, testimonials] = await Promise.all([getCaseStudies(), getTestimonials()])
+    const [cs, ts] = await Promise.all([getCaseStudies(), getTestimonials()])
     if (cs?.length) caseStudies = cs.slice(0, 3)
-    if (testimonials?.length) testimonial = testimonials.find((t: any) => t.featured) || testimonials[0]
+    if (ts?.length) testimonials = ts
   } catch {
     // use fallback data
   }
@@ -264,31 +279,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIAL ──────────────────────────────────────── */}
+      {/* ── TESTIMONIALS ─────────────────────────────────────── */}
       <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] py-28">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-1 mb-10 reveal">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-[var(--color-accent)] text-lg">★</span>
-              ))}
-            </div>
-            <blockquote
-              className="font-serif font-semibold text-[var(--color-text)] leading-snug mb-10 reveal"
-              style={{ fontSize: 'clamp(22px,3vw,36px)', transitionDelay: '100ms' }}
-            >
-              &ldquo;{testimonial.quote}&rdquo;
-            </blockquote>
-            <div className="flex items-center justify-center gap-4 reveal" style={{ transitionDelay: '220ms' }}>
-              <div className="w-10 h-10 rounded-full bg-[rgba(var(--ch-accent),0.15)] border border-[rgba(var(--ch-accent),0.30)] flex items-center justify-center">
-                <span className="font-mono text-[10px] text-[var(--color-accent)]">{testimonial.initials}</span>
-              </div>
-              <div className="text-left">
-                <p className="font-mono text-[12px] tracking-[0.08em] text-[var(--color-text)]">{testimonial.name}</p>
-                <p className="font-mono text-[10px] tracking-[0.06em] text-[rgba(var(--ch-text),0.40)]">{testimonial.role}</p>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-[1280px] mx-auto reveal">
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 
