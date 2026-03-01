@@ -55,7 +55,7 @@ export default async function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
+      <section className="dot-grid bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
           <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Full-Service, Structured</p>
           <h1

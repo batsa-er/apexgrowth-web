@@ -12,7 +12,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
+      <section className="dot-grid bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
           <div>
             <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Contact</p>

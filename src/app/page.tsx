@@ -58,7 +58,7 @@ export default async function HomePage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col justify-center px-[clamp(24px,5vw,80px)] pt-24 pb-20 overflow-hidden bg-[#F6F7FB]">
+      <section className="dot-grid relative min-h-screen flex flex-col justify-center px-[clamp(24px,5vw,80px)] pt-24 pb-20 overflow-hidden bg-[#F6F7FB]">
         {/* Radial glows */}
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.06)_0%,transparent_70%)] pointer-events-none" />
