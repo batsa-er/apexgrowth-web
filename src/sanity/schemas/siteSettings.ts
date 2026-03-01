@@ -19,7 +19,8 @@ export default defineType({
           ],
           preview: {
             select: { title: 'alt', media: 'image' },
-            prepare({ title, media }: { title?: string; media?: unknown }) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            prepare({ title, media }: { title?: string; media?: any }) {
               return { title: title || 'Slide', media }
             },
           },

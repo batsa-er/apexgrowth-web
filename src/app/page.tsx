@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudies, getTestimonials, getHeroSlides } from '@/sanity/queries'
 import CaseCard from '@/components/CaseCard'
