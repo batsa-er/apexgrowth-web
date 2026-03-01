@@ -5,9 +5,9 @@ import TestimonialCarousel from '@/components/TestimonialCarousel'
 import HeroImageSlider from '@/components/HeroImageSlider'
 import { urlFor } from '@/sanity/client'
 import {
-  TrendingUpIcon, UsersIcon, CurrencyIcon, ShieldCheckIcon,
   BrushIcon, MonitorIcon, MegaphoneIcon, PrinterIcon, CheckIcon,
 } from '@/components/Icons'
+import StatsBar from '@/components/StatsBar'
 
 // Fallback data for when Sanity is not connected
 const fallbackCaseStudies = [
@@ -143,23 +143,7 @@ export default async function HomePage() {
       </section>
 
       {/* ── STATS BAR ────────────────────────────────────────── */}
-      <section className="bg-[var(--color-surface)] border-t-[3px] border-t-[var(--color-accent)] border-b border-b-[rgba(var(--ch-accent),0.08)] px-[clamp(24px,5vw,80px)] py-16">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
-          {[
-            { Icon: TrendingUpIcon, num: '8.4×', label: 'Average ROI — enterprise clients, Year 1' },
-            { Icon: UsersIcon,      num: '62%',  label: 'Avg increase in qualified pipeline within 90 days' },
-            { Icon: CurrencyIcon,   num: '$47M', label: 'In verified client revenue attributed to our systems' },
-            { Icon: ShieldCheckIcon,num: '94%',  label: 'Client retention rate' },
-          ].map(({ Icon, num, label }, i) => (
-            <div key={label} className="reveal-scale" style={{ transitionDelay: `${i * 90}ms` }}>
-              <Icon className="w-5 h-5 text-[var(--color-accent)] mb-3 opacity-60" />
-              <p className="font-serif font-bold text-[var(--color-text)] mb-1"
-                style={{ fontSize: 'clamp(36px,5vw,64px)', lineHeight: 1 }}>{num}</p>
-              <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(var(--ch-text),0.40)]">{label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsBar />
 
       {/* ── WORK ─────────────────────────────────────────────── */}
       <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] py-28">

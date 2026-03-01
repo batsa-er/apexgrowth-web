@@ -31,13 +31,15 @@ export default function Nav() {
     return () => window.removeEventListener('keydown', handler)
   }, [])
 
+  const ghost = !scrolled
+
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[clamp(24px,5vw,80px)] h-[72px] transition-all duration-400 ${
         scrolled ? 'bg-[rgba(var(--ch-bg),0.96)] border-b border-[rgba(var(--ch-border),0.10)] backdrop-blur-xl shadow-sm' : ''
       }`}>
-        <Link href="/" className="font-serif text-[22px] font-bold tracking-wide text-[var(--color-text)]">
-          Apex<span className="text-[var(--color-accent)]">.</span>Growth
+        <Link href="/" className={`font-serif text-[22px] font-bold tracking-wide transition-colors duration-400 ${ghost ? 'text-white' : 'text-[var(--color-text)]'}`}>
+          Apex<span className={ghost ? 'text-[rgba(255,255,255,0.55)]' : 'text-[var(--color-accent)]'}>.</span>Growth
         </Link>
 
         <ul className="hidden md:flex items-center gap-10 list-none">
@@ -46,7 +48,9 @@ export default function Nav() {
               <Link
                 href={l.href}
                 className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-200 ${
-                  pathname.startsWith(l.href) ? 'text-[var(--color-accent)]' : 'text-[rgba(var(--ch-text),0.55)] hover:text-[var(--color-accent)]'
+                  pathname.startsWith(l.href)
+                    ? ghost ? 'text-white' : 'text-[var(--color-accent)]'
+                    : ghost ? 'text-[rgba(255,255,255,0.60)] hover:text-white' : 'text-[rgba(var(--ch-text),0.55)] hover:text-[var(--color-accent)]'
                 }`}
               >
                 {l.label}
@@ -56,7 +60,11 @@ export default function Nav() {
           <li>
             <Link
               href="/contact"
-              className="font-mono text-[11px] tracking-[0.12em] uppercase font-medium bg-[var(--color-accent)] text-white px-[22px] py-[10px] hover:bg-[var(--color-accent-hover)] transition-colors duration-200"
+              className={`font-mono text-[11px] tracking-[0.12em] uppercase font-medium px-[22px] py-[10px] transition-colors duration-200 ${
+                ghost
+                  ? 'border border-[rgba(255,255,255,0.40)] text-white hover:bg-white hover:text-[#0B0F14]'
+                  : 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)]'
+              }`}
             >
               Book Strategy Call →
             </Link>
@@ -68,9 +76,9 @@ export default function Nav() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-[1.5px] bg-[var(--color-text)] transition-all duration-300 ${open ? 'translate-y-[6.5px] rotate-45' : ''}`} />
-          <span className={`block w-6 h-[1.5px] bg-[var(--color-text)] transition-all duration-300 ${open ? 'opacity-0 scale-x-0' : ''}`} />
-          <span className={`block w-6 h-[1.5px] bg-[var(--color-text)] transition-all duration-300 ${open ? '-translate-y-[6.5px] -rotate-45' : ''}`} />
+          <span className={`block w-6 h-[1.5px] transition-all duration-300 ${ghost ? 'bg-white' : 'bg-[var(--color-text)]'} ${open ? 'translate-y-[6.5px] rotate-45' : ''}`} />
+          <span className={`block w-6 h-[1.5px] transition-all duration-300 ${ghost ? 'bg-white' : 'bg-[var(--color-text)]'} ${open ? 'opacity-0 scale-x-0' : ''}`} />
+          <span className={`block w-6 h-[1.5px] transition-all duration-300 ${ghost ? 'bg-white' : 'bg-[var(--color-text)]'} ${open ? '-translate-y-[6.5px] -rotate-45' : ''}`} />
         </button>
       </nav>
 
