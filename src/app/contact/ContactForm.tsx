@@ -9,9 +9,17 @@ export default function ContactForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setStatus('sending')
-    // TODO: wire to your form endpoint (Formspree, Resend, etc.)
-    await new Promise(r => setTimeout(r, 1200))
-    setStatus('sent')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error()
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -100,6 +108,11 @@ export default function ContactForm() {
           >
             {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
+          {status === 'error' && (
+            <p className="text-center font-mono text-[11px] text-red-500 tracking-[0.08em]">
+              Something went wrong. Please email us directly.
+            </p>
+          )}
         </form>
       )}
     </div>
