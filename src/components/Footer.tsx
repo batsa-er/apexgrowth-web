@@ -1,7 +1,16 @@
 import Link from 'next/link'
 import { LinkedInIcon, XIcon } from '@/components/Icons'
+import { getSiteSettings } from '@/sanity/queries'
 
-export default function Footer() {
+export default async function Footer() {
+  let settings = null
+  try { settings = await getSiteSettings() } catch {}
+
+  const email       = settings?.email       || 'hello@apexgrowth.africa'
+  const address     = settings?.address     || 'Accra, Ghana'
+  const linkedinUrl = settings?.linkedinUrl || 'https://linkedin.com/company/apexgrowthpartners'
+  const twitterUrl  = settings?.twitterUrl  || 'https://x.com/apexgrowth_af'
+
   return (
     <footer className="bg-[#EEF2FF] border-t border-[rgba(15,23,42,0.10)] px-[clamp(24px,5vw,80px)] py-20">
       <div className="max-w-[1280px] mx-auto">
@@ -14,7 +23,7 @@ export default function Footer() {
               Full-service creative agency delivering brand identity, web, marketing, and print production across Africa and globally.
             </p>
             <p className="mt-6 font-mono text-[11px] tracking-[0.12em] uppercase text-[rgba(11,15,20,0.28)]">
-              Accra, Ghana · hello@apexgrowth.africa
+              {address} · {email}
             </p>
           </div>
 
@@ -46,11 +55,11 @@ export default function Footer() {
             © {new Date().getFullYear()} Apex Growth Partners. All rights reserved.
           </p>
           <div className="flex gap-3">
-            <a href="https://linkedin.com/company/apexgrowthpartners" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
               className="w-8 h-8 border border-[rgba(15,23,42,0.10)] flex items-center justify-center text-[rgba(11,15,20,0.35)] hover:text-[#2563EB] hover:border-[rgba(37,99,235,0.30)] transition-colors duration-200">
               <LinkedInIcon className="w-4 h-4" />
             </a>
-            <a href="https://x.com/apexgrowth_af" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
+            <a href={twitterUrl} target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
               className="w-8 h-8 border border-[rgba(15,23,42,0.10)] flex items-center justify-center text-[rgba(11,15,20,0.35)] hover:text-[#2563EB] hover:border-[rgba(37,99,235,0.30)] transition-colors duration-200">
               <XIcon className="w-4 h-4" />
             </a>

@@ -82,6 +82,13 @@ export async function getTeamMembers() {
   }`)
 }
 
+// ── Site Settings ─────────────────────────────────────
+export async function getSiteSettings() {
+  return client.fetch(`*[_type == "siteSettings" && _id == "siteSettings"][0] {
+    email, address, responseTime, linkedinUrl, twitterUrl
+  }`)
+}
+
 // ── Careers ───────────────────────────────────────────
 export async function getCareers(): Promise<Career[]> {
   const data = await client.fetch(`*[_type == "career" && published == true] | order(_createdAt desc) {
