@@ -20,14 +20,41 @@
   --font-mono:  'DM Mono', monospace;
 }
 
+/* ── Color tokens ── */
+:root {
+  --color-bg:           #F6F7FB;
+  --color-surface:      #EEF2FF;
+  --color-panel:        #FFFFFF;
+  --color-text:         #0B0F14;
+  --color-accent:       #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --ch-text:   11,15,20;
+  --ch-border: 15,23,42;
+  --ch-accent: 37,99,235;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:           #0C1018;
+    --color-surface:      #141B27;
+    --color-panel:        #1E2633;
+    --color-text:         #F1F5F9;
+    --color-accent:       #3B82F6;
+    --color-accent-hover: #2563EB;
+    --ch-text:   241,245,249;
+    --ch-border: 241,245,249;
+    --ch-accent: 59,130,246;
+  }
+}
+
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: #F6F7FB;
-  color: #0B0F14;
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: 'DM Sans', system-ui, sans-serif;
   font-weight: 300;
   line-height: 1.7;

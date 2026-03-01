@@ -141,45 +141,45 @@ export default async function InsightPage({ params }: { params: { slug: string }
   return (
     <>
       {/* Header */}
-      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-16">
+      <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pt-40 pb-16">
         <div className="max-w-[800px] mx-auto">
           <div className="flex items-center gap-3 mb-8">
-            <Link href="/insights" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.40)] hover:text-[#2563EB] transition-colors">
+            <Link href="/insights" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(var(--ch-text),0.40)] hover:text-[var(--color-accent)] transition-colors">
               ← Insights
             </Link>
-            <span className="text-[rgba(11,15,20,0.20)]">/</span>
-            <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{ins.tag}</span>
+            <span className="text-[rgba(var(--ch-text),0.20)]">/</span>
+            <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[var(--color-accent)] border border-[rgba(var(--ch-accent),0.30)]">{ins.tag}</span>
           </div>
-          <h1 className="font-serif font-bold text-[#0B0F14] leading-tight mb-6"
+          <h1 className="font-serif font-bold text-[var(--color-text)] leading-tight mb-6"
             style={{ fontSize: 'clamp(32px,5vw,64px)' }}>{ins.title}</h1>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.35)]">{formatDate(ins.publishedAt)}</span>
-            <span className="text-[rgba(11,15,20,0.15)]">·</span>
-            <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.35)]">{ins.readTime}</span>
-            <span className="text-[rgba(11,15,20,0.15)]">·</span>
-            <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.35)]">Apex Growth</span>
+            <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(var(--ch-text),0.35)]">{formatDate(ins.publishedAt)}</span>
+            <span className="text-[rgba(var(--ch-text),0.15)]">·</span>
+            <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(var(--ch-text),0.35)]">{ins.readTime}</span>
+            <span className="text-[rgba(var(--ch-text),0.15)]">·</span>
+            <span className="font-mono text-[10px] tracking-[0.1em] text-[rgba(var(--ch-text),0.35)]">Apex Growth</span>
           </div>
         </div>
       </section>
 
       {/* Body */}
-      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pb-24">
+      <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pb-24">
         <div className="max-w-[800px] mx-auto">
-          <div className="border-t border-[rgba(37,99,235,0.10)] pt-12">
+          <div className="border-t border-[rgba(var(--ch-accent),0.10)] pt-12">
             <div className="prose-custom space-y-6">
               {bodyText.split('\n\n').map((para, i) => {
                 if (para.startsWith('**') && para.endsWith('**')) {
-                  return <h2 key={i} className="font-serif text-[24px] font-bold text-[#0B0F14] mt-10">{para.replace(/\*\*/g, '')}</h2>
+                  return <h2 key={i} className="font-serif text-[24px] font-bold text-[var(--color-text)] mt-10">{para.replace(/\*\*/g, '')}</h2>
                 }
                 if (para.startsWith('**')) {
                   const parts = para.split('**')
                   return (
-                    <p key={i} className="text-[16px] text-[rgba(11,15,20,0.70)] leading-[1.85]">
-                      {parts.map((p, j) => j % 2 === 1 ? <strong key={j} className="text-[#0B0F14] font-semibold">{p}</strong> : p)}
+                    <p key={i} className="text-[16px] text-[rgba(var(--ch-text),0.70)] leading-[1.85]">
+                      {parts.map((p, j) => j % 2 === 1 ? <strong key={j} className="text-[var(--color-text)] font-semibold">{p}</strong> : p)}
                     </p>
                   )
                 }
-                return <p key={i} className="text-[16px] text-[rgba(11,15,20,0.70)] leading-[1.85]">{para}</p>
+                return <p key={i} className="text-[16px] text-[rgba(var(--ch-text),0.70)] leading-[1.85]">{para}</p>
               })}
             </div>
           </div>
@@ -187,17 +187,17 @@ export default async function InsightPage({ params }: { params: { slug: string }
       </section>
 
       {/* CTA */}
-      <section className="bg-[#EEF2FF] border-t border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
+      <section className="bg-[var(--color-surface)] border-t border-[rgba(var(--ch-accent),0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
         <div className="max-w-[700px] mx-auto">
-          <h2 className="font-serif font-bold text-[#0B0F14] mb-4" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>
+          <h2 className="font-serif font-bold text-[var(--color-text)] mb-4" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>
             Want this applied to your business?
           </h2>
-          <p className="text-[rgba(11,15,20,0.55)] mb-8">
+          <p className="text-[rgba(var(--ch-text),0.55)] mb-8">
             Book a strategy call and we will show you how these principles apply to your specific market and stage.
           </p>
           <Link
             href="/contact"
-            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-10 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
+            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[var(--color-accent)] text-white px-10 py-4 hover:bg-[var(--color-accent-hover)] transition-colors duration-200"
           >
             Book Strategy Call
           </Link>

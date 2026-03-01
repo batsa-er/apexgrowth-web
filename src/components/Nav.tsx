@@ -34,10 +34,10 @@ export default function Nav() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[clamp(24px,5vw,80px)] h-[72px] transition-all duration-400 ${
-        scrolled ? 'bg-[rgba(246,247,251,0.96)] border-b border-[rgba(15,23,42,0.10)] backdrop-blur-xl shadow-sm' : ''
+        scrolled ? 'bg-[rgba(246,247,251,0.96)] border-b border-[rgba(var(--ch-border),0.10)] backdrop-blur-xl shadow-sm' : ''
       }`}>
-        <Link href="/" className="font-serif text-[22px] font-bold tracking-wide text-[#0B0F14]">
-          Apex<span className="text-[#2563EB]">.</span>Growth
+        <Link href="/" className="font-serif text-[22px] font-bold tracking-wide text-[var(--color-text)]">
+          Apex<span className="text-[var(--color-accent)]">.</span>Growth
         </Link>
 
         <ul className="hidden md:flex items-center gap-10 list-none">
@@ -46,7 +46,7 @@ export default function Nav() {
               <Link
                 href={l.href}
                 className={`font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-200 ${
-                  pathname.startsWith(l.href) ? 'text-[#2563EB]' : 'text-[rgba(11,15,20,0.55)] hover:text-[#2563EB]'
+                  pathname.startsWith(l.href) ? 'text-[var(--color-accent)]' : 'text-[rgba(var(--ch-text),0.55)] hover:text-[var(--color-accent)]'
                 }`}
               >
                 {l.label}
@@ -56,7 +56,7 @@ export default function Nav() {
           <li>
             <Link
               href="/contact"
-              className="font-mono text-[11px] tracking-[0.12em] uppercase font-medium bg-[#2563EB] text-white px-[22px] py-[10px] hover:bg-[#1D4ED8] transition-colors duration-200"
+              className="font-mono text-[11px] tracking-[0.12em] uppercase font-medium bg-[var(--color-accent)] text-white px-[22px] py-[10px] hover:bg-[var(--color-accent-hover)] transition-colors duration-200"
             >
               Book Strategy Call →
             </Link>
@@ -81,14 +81,14 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="font-serif text-[clamp(28px,6vw,48px)] font-semibold text-[#0B0F14] hover:text-[#2563EB] transition-colors duration-200"
+              className="font-serif text-[clamp(28px,6vw,48px)] font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors duration-200"
             >
               {l.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="mt-4 font-mono text-[13px] tracking-[0.12em] uppercase font-medium bg-[#2563EB] text-white px-12 py-5 hover:bg-[#1D4ED8] transition-colors duration-200"
+            className="mt-4 font-mono text-[13px] tracking-[0.12em] uppercase font-medium bg-[var(--color-accent)] text-white px-12 py-5 hover:bg-[var(--color-accent-hover)] transition-colors duration-200"
           >
             Book Strategy Call
           </Link>

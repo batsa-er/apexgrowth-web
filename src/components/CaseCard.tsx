@@ -60,13 +60,13 @@ export default function CaseCard({ slug, client, industry, summary, metric1_num,
           >
             {industry}
           </span>
-          <span className="font-mono text-[10px] text-[rgba(11,15,20,0.28)] group-hover:translate-x-1 transition-transform duration-200">→</span>
+          <span className="font-mono text-[10px] text-[rgba(var(--ch-text),0.28)] group-hover:translate-x-1 transition-transform duration-200">→</span>
         </div>
 
-        <h3 className="font-serif text-[22px] font-semibold text-[#0B0F14] mb-3">{client}</h3>
-        <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-8">{summary}</p>
+        <h3 className="font-serif text-[22px] font-semibold text-[var(--color-text)] mb-3">{client}</h3>
+        <p className="text-[13px] text-[rgba(var(--ch-text),0.50)] leading-relaxed mb-8">{summary}</p>
 
-        <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[rgba(37,99,235,0.08)]">
+        <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[rgba(var(--ch-accent),0.08)]">
           {[
             [metric1_num, metric1_label],
             [metric2_num, metric2_label],
@@ -74,7 +74,7 @@ export default function CaseCard({ slug, client, industry, summary, metric1_num,
           ].map(([num, label]) => (
             <div key={label}>
               <p className="font-serif text-[20px] font-bold mb-0.5" style={{ color: acc.text }}>{num}</p>
-              <p className="font-mono text-[9px] tracking-[0.12em] uppercase text-[rgba(11,15,20,0.35)]">{label}</p>
+              <p className="font-mono text-[9px] tracking-[0.12em] uppercase text-[rgba(var(--ch-text),0.35)]">{label}</p>
             </div>
           ))}
         </div>

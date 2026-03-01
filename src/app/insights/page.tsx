@@ -53,29 +53,29 @@ export default async function InsightsPage() {
   return (
     <>
       {/* Header */}
-      <section className="dot-grid bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
+      <section className="dot-grid bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pt-40 pb-20">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6 hero-in hero-in-1">Insights</p>
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-6 hero-in hero-in-1">Insights</p>
           <h1
-            className="font-serif font-bold text-[#0B0F14] leading-tight mb-6 hero-in hero-in-2"
+            className="font-serif font-bold text-[var(--color-text)] leading-tight mb-6 hero-in hero-in-2"
             style={{ fontSize: 'clamp(44px,7vw,88px)' }}
           >
             Brand<br />intelligence.
           </h1>
-          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(11,15,20,0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
+          <p className="text-[clamp(15px,1.2vw,18px)] text-[rgba(var(--ch-text),0.55)] max-w-xl leading-relaxed hero-in hero-in-3">
             Creative frameworks, brand strategy, and campaign insights from the Apex Growth team — built from real engagements, not theory.
           </p>
         </div>
       </section>
 
       {/* Articles */}
-      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pb-28">
+      <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pb-28">
         <div className="max-w-[1280px] mx-auto">
           {/* Featured */}
           {insights[0] && (
             <Link
               href={`/insights/${insights[0].slug?.current || insights[0].slug}`}
-              className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] mb-6 hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden reveal"
+              className="group block border border-[rgba(var(--ch-accent),0.12)] bg-[var(--color-surface)] mb-6 hover:border-[rgba(var(--ch-accent),0.30)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden reveal"
             >
               {/* Featured cover image — Sanity upload takes priority over fallback URL */}
               {(insights[0].coverImage || insights[0].image) && (
@@ -92,19 +92,19 @@ export default async function InsightsPage() {
               )}
               <div className="p-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{insights[0].tag}</span>
-                  {insights[0].label && <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[rgba(11,15,20,0.35)] border border-[rgba(15,23,42,0.10)]">{insights[0].label}</span>}
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[var(--color-accent)] border border-[rgba(var(--ch-accent),0.30)]">{insights[0].tag}</span>
+                  {insights[0].label && <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 text-[rgba(var(--ch-text),0.35)] border border-[rgba(var(--ch-border),0.10)]">{insights[0].label}</span>}
                 </div>
-                <h2 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4 group-hover:text-[#2563EB] transition-colors" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>
+                <h2 className="font-serif font-bold text-[var(--color-text)] leading-tight mb-4 group-hover:text-[var(--color-accent)] transition-colors" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>
                   {insights[0].title}
                 </h2>
-                <p className="text-[15px] text-[rgba(11,15,20,0.55)] leading-relaxed max-w-2xl mb-8">{insights[0].excerpt}</p>
+                <p className="text-[15px] text-[rgba(var(--ch-text),0.55)] leading-relaxed max-w-2xl mb-8">{insights[0].excerpt}</p>
                 <div className="flex items-center gap-4">
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] text-[rgba(var(--ch-text),0.30)]">
                     <CalendarIcon className="w-3.5 h-3.5" />{formatDate(insights[0].publishedAt)}
                   </span>
-                  <span className="text-[rgba(11,15,20,0.15)]">·</span>
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] text-[rgba(11,15,20,0.30)]">
+                  <span className="text-[rgba(var(--ch-text),0.15)]">·</span>
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] text-[rgba(var(--ch-text),0.30)]">
                     <ClockIcon className="w-3.5 h-3.5" />{insights[0].readTime}
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export default async function InsightsPage() {
               <Link
                 key={ins._id}
                 href={`/insights/${ins.slug?.current || ins.slug}`}
-                className="group block border border-[rgba(37,99,235,0.12)] bg-[#EEF2FF] hover:border-[rgba(37,99,235,0.30)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden reveal"
+                className="group block border border-[rgba(var(--ch-accent),0.12)] bg-[var(--color-surface)] hover:border-[rgba(var(--ch-accent),0.30)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden reveal"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 {/* Grid card cover image — Sanity upload takes priority over fallback URL */}
@@ -134,18 +134,18 @@ export default async function InsightsPage() {
                 )}
                 <div className="p-8">
                   <div className="flex items-center gap-2 mb-5">
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[#2563EB] border border-[rgba(37,99,235,0.30)]">{ins.tag}</span>
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase px-3 py-1 text-[var(--color-accent)] border border-[rgba(var(--ch-accent),0.30)]">{ins.tag}</span>
                   </div>
-                  <h2 className="font-serif text-[20px] font-semibold text-[#0B0F14] leading-snug mb-3 group-hover:text-[#2563EB] transition-colors">
+                  <h2 className="font-serif text-[20px] font-semibold text-[var(--color-text)] leading-snug mb-3 group-hover:text-[var(--color-accent)] transition-colors">
                     {ins.title}
                   </h2>
-                  <p className="text-[13px] text-[rgba(11,15,20,0.50)] leading-relaxed mb-6">{ins.excerpt}</p>
+                  <p className="text-[13px] text-[rgba(var(--ch-text),0.50)] leading-relaxed mb-6">{ins.excerpt}</p>
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">
+                    <span className="inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.1em] text-[rgba(var(--ch-text),0.28)]">
                       <CalendarIcon className="w-3 h-3" />{formatDate(ins.publishedAt)}
                     </span>
-                    <span className="text-[rgba(11,15,20,0.15)]">·</span>
-                    <span className="inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.1em] text-[rgba(11,15,20,0.28)]">
+                    <span className="text-[rgba(var(--ch-text),0.15)]">·</span>
+                    <span className="inline-flex items-center gap-1 font-mono text-[9px] tracking-[0.1em] text-[rgba(var(--ch-text),0.28)]">
                       <ClockIcon className="w-3 h-3" />{ins.readTime}
                     </span>
                   </div>

@@ -58,42 +58,42 @@ export default async function ServicePage({ params }: { params: { slug: string }
   return (
     <>
       {/* Header */}
-      <section className="bg-[#F6F7FB] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
+      <section className="bg-[var(--color-bg)] px-[clamp(24px,5vw,80px)] pt-40 pb-24">
         <div className="max-w-[900px] mx-auto">
           <div className="flex items-center gap-3 mb-8">
-            <Link href="/services" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(11,15,20,0.40)] hover:text-[#2563EB] transition-colors">
+            <Link href="/services" className="font-mono text-[10px] tracking-[0.16em] uppercase text-[rgba(var(--ch-text),0.40)] hover:text-[var(--color-accent)] transition-colors">
               ← Services
             </Link>
           </div>
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-4">{svc.number}</p>
-          <h1 className="font-serif font-bold text-[#0B0F14] leading-tight mb-4"
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-4">{svc.number}</p>
+          <h1 className="font-serif font-bold text-[var(--color-text)] leading-tight mb-4"
             style={{ fontSize: 'clamp(44px,7vw,80px)' }}>{svc.title}</h1>
-          <p className="font-mono text-[14px] tracking-[0.06em] italic text-[rgba(11,15,20,0.45)] mb-8">{svc.tagline}</p>
-          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(11,15,20,0.60)] leading-relaxed max-w-2xl">{svc.description}</p>
+          <p className="font-mono text-[14px] tracking-[0.06em] italic text-[rgba(var(--ch-text),0.45)] mb-8">{svc.tagline}</p>
+          <p className="text-[clamp(16px,1.4vw,20px)] text-[rgba(var(--ch-text),0.60)] leading-relaxed max-w-2xl">{svc.description}</p>
         </div>
       </section>
 
       {/* Detail + Process */}
-      <section className="bg-[#EEF2FF] px-[clamp(24px,5vw,80px)] py-24">
+      <section className="bg-[var(--color-surface)] px-[clamp(24px,5vw,80px)] py-24">
         <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">The Approach</p>
-            <p className="text-[15px] text-[rgba(11,15,20,0.65)] leading-relaxed mb-10">{svc.detail || svc.description}</p>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-6">The Approach</p>
+            <p className="text-[15px] text-[rgba(var(--ch-text),0.65)] leading-relaxed mb-10">{svc.detail || svc.description}</p>
             {svc.price && (
-              <div className="border border-[rgba(37,99,235,0.20)] p-6">
-                <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(11,15,20,0.35)] mb-2">Investment</p>
-                <p className="font-serif text-[28px] font-bold text-[#2563EB]">{svc.price}</p>
+              <div className="border border-[rgba(var(--ch-accent),0.20)] p-6">
+                <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[rgba(var(--ch-text),0.35)] mb-2">Investment</p>
+                <p className="font-serif text-[28px] font-bold text-[var(--color-accent)]">{svc.price}</p>
               </div>
             )}
           </div>
 
           <div>
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#2563EB] mb-6">What&apos;s Included</p>
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-accent)] mb-6">What&apos;s Included</p>
             <ul className="space-y-4">
               {(svc.outcomes || []).map((o: string, i: number) => (
                 <li key={o} className="flex items-start gap-4">
-                  <span className="font-mono text-[10px] text-[#2563EB] mt-0.5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="font-mono text-[12px] tracking-[0.06em] text-[rgba(11,15,20,0.60)]">{o}</span>
+                  <span className="font-mono text-[10px] text-[var(--color-accent)] mt-0.5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-[12px] tracking-[0.06em] text-[rgba(var(--ch-text),0.60)]">{o}</span>
                 </li>
               ))}
             </ul>
@@ -102,17 +102,17 @@ export default async function ServicePage({ params }: { params: { slug: string }
       </section>
 
       {/* CTA */}
-      <section className="bg-[#F6F7FB] border-t border-[rgba(37,99,235,0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
+      <section className="bg-[var(--color-bg)] border-t border-[rgba(var(--ch-accent),0.08)] px-[clamp(24px,5vw,80px)] py-24 text-center">
         <div className="max-w-[700px] mx-auto">
-          <h2 className="font-serif font-bold text-[#0B0F14] mb-4" style={{ fontSize: 'clamp(28px,3vw,48px)' }}>
+          <h2 className="font-serif font-bold text-[var(--color-text)] mb-4" style={{ fontSize: 'clamp(28px,3vw,48px)' }}>
             Ready to get started?
           </h2>
-          <p className="text-[rgba(11,15,20,0.55)] mb-8">
+          <p className="text-[rgba(var(--ch-text),0.55)] mb-8">
             Book a complimentary strategy call. We&apos;ll assess your current situation and outline exactly how this service applies to your business.
           </p>
           <Link
             href="/contact"
-            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[#2563EB] text-white px-10 py-4 hover:bg-[#1D4ED8] transition-colors duration-200"
+            className="inline-block font-mono text-[11px] tracking-[0.14em] uppercase font-medium bg-[var(--color-accent)] text-white px-10 py-4 hover:bg-[var(--color-accent-hover)] transition-colors duration-200"
           >
             Book Strategy Call
           </Link>
