@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { getCareers, getTeamMembers } from '@/sanity/queries'
 import { urlFor } from '@/sanity/client'
 import {

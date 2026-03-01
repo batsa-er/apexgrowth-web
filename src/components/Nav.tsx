@@ -22,6 +22,7 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setOpen(false) }, [pathname])
 
   useEffect(() => {
